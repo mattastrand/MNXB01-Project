@@ -11,11 +11,7 @@ void rootlogon() {
   gStyle->SetPadLeftMargin(0.16);
   
   gROOT->ProcessLine(".L tempTrender.cpp+"); //Load the classes that we want to use automatically - Convenient!
-<<<<<<< HEAD
-  gROOT->ProcessLine(".L project.cpp+"); //The + means to recompile only if it changed sine last time
-=======
   gROOT->ProcessLine(".L project.cpp+"); //The + means to recompile only if it changed since last time
->>>>>>> 4215668f68dfb9b45f2119fadeabd7132e1039cd
   //Now you can type project() to invoke the function defined in project
   //You can also create and invoke functions in a temptrender manually by doing e.g. tempTrender t(pathToFile); t.hotCold();
 }

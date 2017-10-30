@@ -2,18 +2,11 @@
 #define TEMPTRENDER_H
 
 #include <string>
-<<<<<<< HEAD
-
-class tempTrender {
-	public:
-	tempTrender(std::string filePath); //Construct using the specified file
-=======
 using namespace std;
 
 class tempTrender {
 	public:
 	tempTrender(string filePath); //Construct using the specified file
->>>>>>> 4215668f68dfb9b45f2119fadeabd7132e1039cd
 	~tempTrender() {} //Destructor
 	
 	//void tempOnDay(int monthToCalculate, int dayToCalculate); //Make a histogram of the temperature on this day
