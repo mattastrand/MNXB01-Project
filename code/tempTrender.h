@@ -4,20 +4,28 @@
 #include <string>
 #include <iostream>
 #include <fstream>
+#include <sstream>
+#include <vector>
 using namespace std;
 
 class tempTrender {
 	public:
 	tempTrender(string filePath); //Construct using the specified file
 	~tempTrender();//Destructor
-	string temp;
-	void read_temperatures(){
+	vector<string> read_temperatures(){
+		// Let's read a file and store lines with data in a vector.
+		string temp;
+		vector<string> data_from_file; // Will store every meaningful line from the datasets.
+		string input; // Variable that used to fill up the vector.
 		ifstream file(its_filePath.c_str());
 		while(getline(file,temp)){
-			if (getline(file,temp,'9')){
-				cout << temp << endl;
-			}
+			data_from_file.push_back(temp);
 		}
+		// Now let's reshape the vector and remove meaningless information (lines ending with Y = bad, text)
+		data_from_file.erase(data_from_file.begin(), data_from_file.begin() + 12); // Removing first 12 lines, which only include text.
+		//cout << data_from_file[11] << endl; // Checking that the above works.
+		return data_from_file;
+		
 	}
 	
 	//void tempOnDay(int monthToCalculate, int dayToCalculate); //Make a histogram of the temperature on this day
