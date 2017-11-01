@@ -1,3 +1,4 @@
 28/10 : Project initialized (Mattias)
 30/10 : Skeleton code and datasets uploaded (Mattias)
-31/10 : Creation of the function that reads the data from the preovvided files (Mattias, Leo, Magnus)
+31/10 : Creation of the function that reads the data from the provided files (Mattias, Leo, Magnus)
+01/11: Managed to eliminate the bad lines from the vector created from the data (Mattias, Leo, Magnus)
