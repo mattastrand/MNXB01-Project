@@ -69,18 +69,31 @@ class tempTrender {
 	vector <float> tempPerDay(int yearToCalculate){
 		ifstream f("relevantdata.dat");
 		string line;
-		vector <float> datavector;
 		
-		
-		float yyyy, mm, dd, hour, temperature;
+		float yyyy, mm, dd, hour, temperature, mean_temp, tot_temp = 0;
+		int old_day = 0 , measurementNo = 0;
 		char d;
 		while (getline(f, line)){
 			stringstream data;
 			data << line;
 			data >> yyyy >> mm >> dd >> hour >> temperature;
-			cout << temperature << endl;
-			if (yyyy == yearToCalculate){
-				datavector.push_back(temperature);
+			if ((yyyy == yearToCalculate) || (yyyy == yearToCalculate + 1)){
+				if ((old_day == dd) || (old_day == 0)){
+					tot_temp += temperature;
+					measurementNo += 1;
+					old_day = dd;
+				}
+				else {
+					mean_temp = tot_temp / measurementNo;
+					datavector.push_back(mean_temp);
+					old_day = dd;
+					measurementNo = 1;
+					tot_temp = temperature;
+				}
+				
+			}
+			if ( yyyy == yearToCalculate + 1){
+				break;
 			}
 		}
 		return datavector;
