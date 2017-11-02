@@ -67,35 +67,35 @@ class tempTrender {
 	
 	//Tentative function
 	vector <float> tempPerDay(int yearToCalculate){
-		// This function takes a year as input. It computes the average temperature of each day in that year and produces a histogram of mean temperature per day.
+		// This function takes a year as input, computes the average temperature of each day in that year and produces a histogram of mean temperature per day.
 		
 		ifstream f("relevantdata.dat"); // Opening the organized datafile produced in read_temperatures().
 		string line; 
 		// Variables used to fill a datavector (in turn used to produce the histogram) with mean temperatures corresponding to each day in the chosen year:
 		float yyyy, mm, dd, hour, temperature, mean_temp, tot_temp = 0; 
-		int old_day = 0 , measurementNo = 0;
+		int old_day = 0, measurementNo = 0; // Don't know what the first day in the file is. Give old_day a "wrong" initial value, then give it the day value read in each new line.
 		char d;
 		while (getline(f, line)){
 			// The while loop goes through every line in the datafile. It adds up temperatures until a new day is reached, then takes the mean of these and outputs it in the datavector.
 			stringstream data;
 			data << line;
 			data >> yyyy >> mm >> dd >> hour >> temperature;
-			if ((yyyy == yearToCalculate) || (yyyy == yearToCalculate + 1)){
-				if ((old_day == dd) || (old_day == 0)){
+			if ((yyyy == yearToCalculate) || (yyyy == yearToCalculate + 1)){ // Checking that we are in the right year. year+1 condition is needed for the las day of the year.
+				if ((old_day == dd) || (old_day == 0)){ // As long as the day is the same as in the previous line, add the temperature to a temporary total.
 					tot_temp += temperature;
 					measurementNo += 1;
 					old_day = dd;
 				}
 				else {
-					mean_temp = tot_temp / measurementNo;
-					datavector.push_back(mean_temp);
-					old_day = dd;
-					measurementNo = 1;
+					mean_temp = tot_temp / measurementNo; // When the day changes, divide the (temporary) total by the corresponding number of read lines.
+					datavector.push_back(mean_temp); // Store the mean in the datavector.
+					old_day = dd; 
+					measurementNo = 1; // Reset (temporary) temperature total and corresponding number of read lines.
 					tot_temp = temperature;
 				}
 				
 			}
-			if ( yyyy == yearToCalculate + 1){
+			if ( yyyy == yearToCalculate + 1){ // Kill the above process once a new year is reached.
 				break;
 			}
 		}
