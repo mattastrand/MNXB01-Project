@@ -12,7 +12,7 @@ tempTrender::~tempTrender(){
 }
 
 int main(){
-	string pathToFile = "/home/courseuser/MNXB01/2017HT/Project/datasets/smhi-opendata_Lund.csv"; //Put the path to your data file here
+	string pathToFile = "/home/magnus/MNXB01/2017HT/Project/datasets/smhi-opendata_Lund.csv"; //Put the path to your data file here
 	tempTrender t(pathToFile);
 	t.read_temperatures();
 	for ( int i = 0; i < 30; i++){
