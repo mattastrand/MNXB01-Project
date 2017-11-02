@@ -18,11 +18,12 @@ int main(){
 	//cin >> pathToFile;
 	tempTrender t(pathToFile);
 	t.read_temperatures();
-	for ( int i = 0; i < 30; i++){
-		cout << t.data_from_file.at(i) << endl;
-	} 
+	//for ( int i = 0; i < 30; i++){
+	//	cout << t.data_from_file.at(i) << endl;
+	//} 
 	
 	t.tempPerDay(1973);
+	cout <<t.datavector.size() << endl;
 	for (int i= 0; i < t.datavector.size(); i++){
 		cout << t.datavector.at(i) << endl;
 	}
