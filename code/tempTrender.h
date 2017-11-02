@@ -59,8 +59,6 @@ class tempTrender {
 		
 		return data_from_file;
 		
-		
-		
 	}
 	
 	//void tempOnDay(int monthToCalculate, int dayToCalculate); //Make a histogram of the temperature on this day
@@ -72,18 +70,22 @@ class tempTrender {
 		ifstream f("relevantdata.dat");
 		string line;
 		vector <float> datavector;
+		
+		
+		float yyyy, mm, dd, hour, temperature;
+		char d;
 		while (getline(f, line)){
-			float yyyy, mm, dd, hour, temperature;
-			char d;
 			stringstream data;
 			data << line;
-			data >> yyyy >> d >> mm >> d >> dd >> d >> hour >> d >> temperature;
+			data >> yyyy >> mm >> dd >> hour >> temperature;
+			cout << temperature << endl;
 			if (yyyy == yearToCalculate){
 				datavector.push_back(temperature);
 			}
 		}
 		return datavector;
 	} 
+	
 	//void hotCold(); //Make a histogram of the hottest and coldest day of the year
 	//void tempPerYear(int yearToExtrapolate); //Make a histogram of average temperature per year, then fit and extrapolate to the given year
 
