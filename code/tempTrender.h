@@ -67,13 +67,16 @@ class tempTrender {
 	
 	//Tentative function
 	vector <float> tempPerDay(int yearToCalculate){
-		ifstream f("relevantdata.dat");
-		string line;
+		// This function takes a year as input. It computes the average temperature of each day in that year and produces a histogram of mean temperature per day.
 		
-		float yyyy, mm, dd, hour, temperature, mean_temp, tot_temp = 0;
+		ifstream f("relevantdata.dat"); // Opening the organized datafile produced in read_temperatures().
+		string line; 
+		// Variables used to fill a datavector (in turn used to produce the histogram) with mean temperatures corresponding to each day in the chosen year:
+		float yyyy, mm, dd, hour, temperature, mean_temp, tot_temp = 0; 
 		int old_day = 0 , measurementNo = 0;
 		char d;
 		while (getline(f, line)){
+			// The while loop goes through every line in the datafile. It adds up temperatures until a new day is reached, then takes the mean of these and outputs it in the datavector.
 			stringstream data;
 			data << line;
 			data >> yyyy >> mm >> dd >> hour >> temperature;
