@@ -38,16 +38,6 @@ class tempTrender {
 			input.erase(0,pos +1);
 			
 			
-			
-			//double data_array [Ayear][Amonth][Aday][Ahour][Atemperature];
-			//int n,m,k;
-			
-			//char key[] = "G";
-			//char buffer[1];
-			//char *var1 = "G";
-			//char e;
-			//cout << e << endl;
-			
 			stringstream data;
 			if(input != ""){
 				//cout << number_of_lines << endl;
@@ -62,9 +52,7 @@ class tempTrender {
 		}
 		datafile.close();
 		file.close();
-		// Now let's reshape the vector and remove meaningless information (lines ending with Y = bad, text)
-		//data_from_file.erase(data_from_file.begin(), data_from_file.begin() + 12); // Removing first 12 lines, which only include text.
-		//cout << number_of_lines << endl;
+		
 		
 		return data_from_file;
 		
@@ -81,18 +69,22 @@ class tempTrender {
 		ifstream f("relevantdata.dat");
 		string line;
 		vector <float> datavector;
+		
+		
+		float yyyy, mm, dd, hour, temperature;
+		char d;
 		while (getline(f, line)){
-			float yyyy, mm, dd, hour, temperature;
-			char d;
 			stringstream data;
 			data << line;
-			data >> yyyy >> d >> mm >> d >> dd >> d >> hour >> d >> temperature;
+			data >> yyyy >> mm >> dd >> hour >> temperature;
+			cout << temperature << endl;
 			if (yyyy == yearToCalculate){
 				datavector.push_back(temperature);
 			}
 		}
 		return datavector;
 	} 
+	
 	//void hotCold(); //Make a histogram of the hottest and coldest day of the year
 	//void tempPerYear(int yearToExtrapolate); //Make a histogram of average temperature per year, then fit and extrapolate to the given year
 
