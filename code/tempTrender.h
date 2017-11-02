@@ -13,43 +13,37 @@ class tempTrender {
 	tempTrender(string filePath); //Construct using the specified file
 	~tempTrender();//Destructor
 	
-	
-	vector<string> data_from_file; 		 // Will store every meaningful line from the datasets.
+	vector<string> data_from_file; // Will store every meaningful line from the datasets.
 	vector <float> datavector;
+	
 	vector<string> read_temperatures(){
-	// Let's read a file and store lines with data in a vector.
+	// Let's read a file and store lines with data in a vector and sort them then store them in a new datafile.
 		
-		string input, temp, line; // Variable that used to fill up the vector.
+		string input, temp, useless_line; // Variables that are used to fill up the vector.
 		
 		ifstream file(its_filePath.c_str());
 		ofstream datafile("relevantdata.dat");
-		while(getline(file,line)){
-			if (line == "Datum;Tid (UTC);Lufttemperatur;Kvalitet;;Tidsutsnitt:"){
+		
+		//Skipping the first few lines, which only contain text.
+		while(getline(file,useless_line)){
+			if (useless_line == "Datum;Tid (UTC);Lufttemperatur;Kvalitet;;Tidsutsnitt:"){
 				break;
 			}	
 		}
-		float number_of_lines = 0;
+		
+		float number_of_lines = 0; // In case we want to count the lines in the file.
 		float yyyy, mm, dd, hour, min, sec, temperature;
 		char d;
+		
 		while(getline(file,temp)){
 			// Lines ending with Y (bad recordings) are excluded to begin with.
 			input = temp.substr(0,temp.find(";;",0));
 			size_t pos = input.find("Y");
 			input.erase(0,pos +1);
 			
-			
-			
-			//double data_array [Ayear][Amonth][Aday][Ahour][Atemperature];
-			//int n,m,k;
-			
-			//char key[] = "G";
-			//char buffer[1];
-			//char *var1 = "G";
-			//char e;
-			//cout << e << endl;
-			
 			stringstream data;
 			if(input != ""){
+				
 				//cout << number_of_lines << endl;
 				//++number_of_lines; 
 				
@@ -62,9 +56,6 @@ class tempTrender {
 		}
 		datafile.close();
 		file.close();
-		// Now let's reshape the vector and remove meaningless information (lines ending with Y = bad, text)
-		//data_from_file.erase(data_from_file.begin(), data_from_file.begin() + 12); // Removing first 12 lines, which only include text.
-		//cout << number_of_lines << endl;
 		
 		return data_from_file;
 		
