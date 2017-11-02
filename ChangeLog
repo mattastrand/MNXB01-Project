@@ -3,3 +3,4 @@
 31/10 : Creation of the function that reads the data from the provided files. (Mattias, Leo, Magnus)
 01/11: Managed to eliminate the bad lines from the vector created from the data. (Mattias, Leo, Magnus)
 01/11: Extracted relevant data from raw data, e.g.  temperature, date etc. Wrote data to a readable .dat file. (Leo, Magnus)
+02/11: Managed to make the previous code work as intended for every dataset other than Uppsala, as that is a different type. (Herman, Leo,  Magnus)

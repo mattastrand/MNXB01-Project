@@ -2,6 +2,7 @@
 #define TEMPTRENDER_H
 
 #include <string>
+#include <string.h>
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -35,17 +36,20 @@ class tempTrender {
 			size_t pos = input.find("Y");
 			input.erase(0,pos +1);
 			
-			stringstream data;
+			
 			float yyyy, mm, dd, hour, min, sec, temperature;
 			char d;
+			//char key[] = "G";
+			//char buffer[1];
+			//char *var1 = "G";
 			//char e;
-			data << input;
-	
-			data >> yyyy >> d >> mm >> d >> dd >> d >> hour >> d >> min >> d >> sec >> d >> temperature;
 			//cout << e << endl;
-			//if (e == 'G'){
-			datafile << yyyy << " " << mm << " " << dd << " " << hour << " " << temperature << endl;
-			//}
+			if(input != ""){
+				stringstream data;
+				data << input;
+				data >> yyyy >> d >> mm >> d >> dd >> d >> hour >> d >> min >> d >> sec >> d >> temperature >> d ;
+				datafile << yyyy << " " << mm << " " << dd << " " << hour << " " << temperature << endl;
+			}
 			if (input != ""){
 				data_from_file.push_back(input);
 			}
