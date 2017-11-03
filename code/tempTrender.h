@@ -7,6 +7,13 @@
 #include <sstream>
 #include <vector>
 
+#include <TF1.h> 
+#include <TH1.h> 
+#include <TStyle.h>  
+#include <TMath.h>   
+#include <TCanvas.h> 
+#include <TGraph.h>
+
 using namespace std;
 
 class tempTrender {
@@ -115,6 +122,36 @@ class tempTrender {
 	//void hotCold(); //Make a histogram of the hottest and coldest day of the year
 	//void tempPerYear(int yearToExtrapolate); //Make a histogram of average temperature per year, then fit and extrapolate to the given year
 	
+
+	
+	
+	
+	/*void testFunc(){
+		//TGraph* gr = new TGraph(s.datavector.size(), xAxis, yAxis);
+		
+		TH1D* hist = new TH1D("hPhi", "ROOT func generated v2 distribution; phi; Counts", 
+				datavector.size(), 0, datavector.size());
+		
+		for(unsigned int i = 0 ; i< datavector.size() ; i++){
+			hist->SetBinContent(i,datavector.at(i));
+		}	
+		
+		TCanvas* c1 = new TCanvas("c1", "hPhi canvas", 900, 600);
+		
+		
+		
+		//gr->GetXaxis()->SetRangeUser(0,s.datavector.size());
+		//gr->Draw();
+		hist->SetLineColor(35);
+		hist->Draw();
+		//Lhist->SetLineColor(24);
+		//Lhist->Draw("SAME");
+		//cout << s.datavector.size() << endl;
+	}*/
+
+	
+
+
 	void tempPerDayExtended(){
 	
 		vector <float> sumOfData(366,0), countsOfData(366,0);
@@ -204,7 +241,7 @@ class tempTrender {
 		}
 
 		
-		/*return avgOfData;*/
+		//return avgOfData;
 	}
 	
 		
