@@ -115,18 +115,11 @@ class tempTrender {
 	
 	//void hotCold(); //Make a histogram of the hottest and coldest day of the year
 	//void tempPerYear(int yearToExtrapolate); //Make a histogram of average temperature per year, then fit and extrapolate to the given year
-	void testFunc(){
-		//string pathToFile = "/home/courseuser/MNXB01/2017HT/Project/datasets/smhi-opendata_Soderarm.csv"; //Put the path to your data file here
-		//tempTrender s(pathToFile);
-		//s.read_temperatures();
-		//s.tempPerDay(1973);
 	
-		/*double xAxis[s.datavector.size()], yAxis[s.datavector.size()];
-		for(unsigned int i = 0; i < s.datavector.size(); i++){
-			xAxis[i] = i;
-			yAxis[i] = s.datavector.at(i);
-		}*/
 	
+	
+	
+	/*void testFunc(){
 		//TGraph* gr = new TGraph(s.datavector.size(), xAxis, yAxis);
 		
 		TH1D* hist = new TH1D("hPhi", "ROOT func generated v2 distribution; phi; Counts", 
@@ -139,17 +132,7 @@ class tempTrender {
 		TCanvas* c1 = new TCanvas("c1", "hPhi canvas", 900, 600);
 		
 		
-		/*string path2 = "/home/courseuser/MNXB01/2017HT/Project/datasets/smhi-opendata_Lund.csv";
-		tempTrender Lund(path2);
-		Lund.read_temperatures();
-		Lund.tempPerDay(1973);
 		
-		
-		TH1D* Lhist = new TH1D("hPhi", "ROOT func generated v2 distribution; phi; Counts", 
-				Lund.datavector.size(), 0, Lund.datavector.size());
-		for (unsigned int i = 0; i < Lund.datavector.size(); i++){
-			Lhist->SetBinContent(i,Lund.datavector.at(i));
-		}*/
 		//gr->GetXaxis()->SetRangeUser(0,s.datavector.size());
 		//gr->Draw();
 		hist->SetLineColor(35);
@@ -157,7 +140,7 @@ class tempTrender {
 		//Lhist->SetLineColor(24);
 		//Lhist->Draw("SAME");
 		//cout << s.datavector.size() << endl;
-	}
+	}*/
 
 	
 	private:
