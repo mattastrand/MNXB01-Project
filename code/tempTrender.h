@@ -1,4 +1,4 @@
-#ifndef TEMPTRENDER_H
+#ifndef TEMPTRENDER_H 
 #define TEMPTRENDER_H
 
 #include <string>
@@ -6,6 +6,7 @@
 #include <fstream>
 #include <sstream>
 #include <vector>
+
 using namespace std;
 
 class tempTrender {
@@ -75,6 +76,7 @@ class tempTrender {
 		float yyyy, mm, dd, hour, temperature, mean_temp, tot_temp = 0; 
 		int old_day = 0, measurementNo = 0; // Don't know what the first day in the file is. Give old_day a "wrong" initial value, then give it the day value read in each new line.
 		char d;
+		
 		while (getline(f, line)){
 			// The while loop goes through every line in the datafile. It adds up temperatures until a new day is reached, then takes the mean of these and outputs it in the datavector.
 			stringstream data;
@@ -99,7 +101,9 @@ class tempTrender {
 				break;
 			}
 		}
+		
 		return datavector;
+
 	} 
 	
 	//void hotCold(); //Make a histogram of the hottest and coldest day of the year
