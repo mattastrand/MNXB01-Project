@@ -15,11 +15,16 @@ class tempTrender {
 	~tempTrender();//Destructor
 	
 	vector<string> data_from_file; // Will store every meaningful line from the datasets.
-	vector <float> datavector;
+	vector <float> datavector,avgOfData;
 	
 	vector<string> read_temperatures(){
 	// Let's read a file and store lines with data in a vector and sort them then store them in a new datafile.
 		
+
+		
+		float yyyy, mm, dd, hour, min, sec, temperature;
+		char d;
+
 		string input, temp, useless_line; // Variables that are used to fill up the vector.
 		
 		ifstream file(its_filePath.c_str());
@@ -33,8 +38,6 @@ class tempTrender {
 		}
 		
 		float number_of_lines = 0; // In case we want to count the lines in the file.
-		float yyyy, mm, dd, hour, min, sec, temperature;
-		char d;
 		
 		while(getline(file,temp)){
 			// Lines ending with Y (bad recordings) are excluded to begin with.
@@ -82,6 +85,8 @@ class tempTrender {
 			stringstream data;
 			data << line;
 			data >> yyyy >> mm >> dd >> hour >> temperature;
+			
+			cout << yyyy <<" "<< mm <<" "<< dd <<" "<< hour <<" " << temperature << endl;
 			if ((yyyy == yearToCalculate) || (yyyy == yearToCalculate + 1)){ // Checking that we are in the right year. year+1 condition is needed for the las day of the year.
 				if ((old_day == dd) || (old_day == 0)){ // As long as the day is the same as in the previous line, add the temperature to a temporary total.
 					tot_temp += temperature;
@@ -100,6 +105,7 @@ class tempTrender {
 			if ( yyyy == yearToCalculate + 1){ // Kill the above process once a new year is reached.
 				break;
 			}
+			f.close();
 		}
 		
 		return datavector;
@@ -108,8 +114,90 @@ class tempTrender {
 	
 	//void hotCold(); //Make a histogram of the hottest and coldest day of the year
 	//void tempPerYear(int yearToExtrapolate); //Make a histogram of average temperature per year, then fit and extrapolate to the given year
+	
+	void /*vector <float>*/ tempPerDayExtended(){
+	
+		vector <float> sumOfData(366,0), countsOfData(366,0);
+		for(int k=0; k<=366; k++){
+			avgOfData.push_back(0);			
+		}
+		
+		ifstream file("relevantdata.dat");
+		string line;
+		
+		float temperature, mean_temp, tot_temp = 0;
+		int old_day = 0, old_year=0, measurementNo = 0, start=0, dayCount=0, yyyy, mm, dd, hour; 
+		cout << "start " << start << endl;
+		while(getline(file,line)){
+			
+			stringstream data;
+			data << line;
+			data >> yyyy >> mm >> dd >> hour >> temperature;
+			//cout << yyyy <<" "<< mm <<" "<< dd <<" "<< hour <<" " << temperature << endl;
+			
+			if(old_day==dd && start==1){
+				old_day=dd;
+				tot_temp +=temperature, 
+				measurementNo+=1;
+				
+				
+			}
+			
+			else if(old_year!=yyyy && start==1){
+				
+				
+				mean_temp=(tot_temp)/measurementNo;
+				sumOfData[dayCount]+=mean_temp;
+				countsOfData[dayCount]+=1;	
+				
+				tot_temp=temperature;
+				old_day=dd;
+				old_year=yyyy;
+				dayCount=0;
+				measurementNo=1;
+				
+				
+			}
+			
+			else if(start==0){
+				
+				old_day=dd;
+				old_year=yyyy;
+				measurementNo=1;
+				dayCount=0;
+				tot_temp=temperature;
+				start=1;
+				cout << start << endl;
+			}
+			
+			else{
+				
+				mean_temp=(tot_temp)/measurementNo;
+				sumOfData[dayCount]+=mean_temp;
+				countsOfData[dayCount]+=1;
+				
+				tot_temp=temperature;
+				old_day=dd;
+				measurementNo=1;
+				dayCount+=1;				
+				
+			}
+		
+		}
+		file.close();
+		for(int j=0; j<=365; j++){
+			avgOfData[j]=(sumOfData[j])/countsOfData[j];
+			cout << avgOfData[j] << endl;	
+	
+		}
 
+		
+		/*return avgOfData;*/
+	}
+	
+		
 	private:
+	
 	string its_filePath;
 };
 

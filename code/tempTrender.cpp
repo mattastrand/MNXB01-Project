@@ -66,22 +66,24 @@ void testFunc(){
 }
 
 int main(){
-	string pathToFile = "/home/courseuser/MNXB01/2017HT/Project/datasets/smhi-opendata_Soderarm.csv"; //Put the path to your data file here
+
+	string pathToFile = "/home/magnus/MNXB01/2017HT/Project/datasets/smhi-opendata_Lund.csv"; //Put the path to your data file here
+
 	//string pathToFile;
 	//cout << "gimme the file" << endl;
 	//cin >> pathToFile;
 	tempTrender t(pathToFile);
 	t.read_temperatures();
+	
+	
 	//for ( int i = 0; i < 30; i++){
 	//	cout << t.data_from_file.at(i) << endl;
 	//} 
-	
+	/*
 	t.tempPerDay(1973);
 	cout <<t.datavector.size() << endl;
 	for (unsigned int i= 0; i < t.datavector.size(); i++){
 		cout << t.datavector.at(i) << endl;
 	}
-	cout << t.datavector.size() << endl;
-	testFunc();
 
 }
