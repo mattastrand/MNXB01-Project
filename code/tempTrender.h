@@ -1,4 +1,4 @@
-#ifndef TEMPTRENDER_H
+#ifndef TEMPTRENDER_H 
 #define TEMPTRENDER_H
 
 #include <string>

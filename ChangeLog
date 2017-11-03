@@ -6,3 +6,4 @@
 02/11: Managed to make the previous code work as intended for every dataset other than Uppsala, as that is a different type. (Herman, Leo,  Magnus)
 02/11: Created tempPerDay that averages the temperature every day over a given year. (Mattias, Herman, Leo, Magnus)
 03/11: Have a code that at least produces a graph, though not necessarily the one we want. (Leo, Herman)
+03/11: Succesfully made a histogram of multiple datasets. (Leo, Herman)

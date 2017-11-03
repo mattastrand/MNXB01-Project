@@ -8,6 +8,7 @@
 #include <TMath.h>   
 #include <TCanvas.h> 
 #include <TGraph.h>
+#include <TAttLine.h>
 
 tempTrender::tempTrender(string filePath) {
 	//cout << "The user supplied " << filePath << " as the path to the data file." << endl;
@@ -25,22 +26,42 @@ void testFunc(){
 	tempTrender s(pathToFile);
 	s.read_temperatures();
 	s.tempPerDay(1973);
-	double xAxis[s.datavector.size()], yAxis[s.datavector.size()];
+
+	/*double xAxis[s.datavector.size()], yAxis[s.datavector.size()];
 	for(unsigned int i = 0; i < s.datavector.size(); i++){
 		xAxis[i] = i;
 		yAxis[i] = s.datavector.at(i);
-	}
-	TGraph* gr = new TGraph(s.datavector.size(), xAxis, yAxis);
-	/*TH1D* htemp = new TH1D("hPhi", "ROOT func generated v2 distribution; phi; Counts", 
+	}*/
+
+	//TGraph* gr = new TGraph(s.datavector.size(), xAxis, yAxis);
+	
+	TH1D* hist = new TH1D("hPhi", "ROOT func generated v2 distribution; phi; Counts", 
 			s.datavector.size(), 0, s.datavector.size());
+	
 	for(unsigned int i = 0 ; i< s.datavector.size() ; i++){
-		htemp->Fill(s.datavector.at(i));
-	}	*/
+		hist->SetBinContent(i,s.datavector.at(i));
+	}	
+	
 	TCanvas* c1 = new TCanvas("c1", "hPhi canvas", 900, 600);
-	//htemp->SetMinimum(0);
-	//htemp->Draw();
-	gr->GetXaxis()->SetRangeUser(0,s.datavector.size());
-	gr->Draw();
+	
+	
+	/*string path2 = "/home/courseuser/MNXB01/2017HT/Project/datasets/smhi-opendata_Lund.csv";
+	tempTrender Lund(path2);
+	Lund.read_temperatures();
+	Lund.tempPerDay(1973);
+	
+	
+	TH1D* Lhist = new TH1D("hPhi", "ROOT func generated v2 distribution; phi; Counts", 
+			Lund.datavector.size(), 0, Lund.datavector.size());
+	for (unsigned int i = 0; i < Lund.datavector.size(); i++){
+		Lhist->SetBinContent(i,Lund.datavector.at(i));
+	}*/
+	//gr->GetXaxis()->SetRangeUser(0,s.datavector.size());
+	//gr->Draw();
+	hist->SetLineColor(35);
+	hist->Draw();
+	//Lhist->SetLineColor(24);
+	//Lhist->Draw("SAME");
 	cout << s.datavector.size() << endl;
 }
 
