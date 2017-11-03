@@ -12,11 +12,29 @@ tempTrender::~tempTrender(){
 }
 
 int main(){
-	string pathToFile = "/home/magnus/MNXB01/2017HT/Project/datasets/smhi-openda_Karlstad.csv"; //Put the path to your data file here
+
+	string pathToFile = "/home/magnus/MNXB01/2017HT/Project/datasets/smhi-opendata_Lund.csv"; //Put the path to your data file here
+
+	//string pathToFile;
+	//cout << "gimme the file" << endl;
+	//cin >> pathToFile;
 	tempTrender t(pathToFile);
 	t.read_temperatures();
-	for ( int i = 0; i < 30; i++){
-		cout << t.data_from_file.at(i) << endl;
-	} 
 	
+	
+	//for ( int i = 0; i < 30; i++){
+	//	cout << t.data_from_file.at(i) << endl;
+	//} 
+	/*
+	t.tempPerDay(1973);
+	cout <<t.datavector.size() << endl;
+	for (int i= 0; i < t.datavector.size(); i++){
+		cout << t.datavector.at(i) << endl;
+	}
+	* */
+	t.tempPerDayExtended();
+	/*for(int i=0; i<=366; i++){
+		cout << t.avgOfData[i] << endl;
+	}*/
+	return 0;
 }
