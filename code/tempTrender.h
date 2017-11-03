@@ -6,13 +6,13 @@
 #include <fstream>
 #include <sstream>
 #include <vector>
-
 #include <TF1.h> 
 #include <TH1.h> 
 #include <TStyle.h>  
 #include <TMath.h>   
 #include <TCanvas.h> 
 #include <TGraph.h>
+
 
 using namespace std;
 
@@ -122,36 +122,6 @@ class tempTrender {
 	//void hotCold(); //Make a histogram of the hottest and coldest day of the year
 	//void tempPerYear(int yearToExtrapolate); //Make a histogram of average temperature per year, then fit and extrapolate to the given year
 	
-
-	
-	
-	
-	/*void testFunc(){
-		//TGraph* gr = new TGraph(s.datavector.size(), xAxis, yAxis);
-		
-		TH1D* hist = new TH1D("hPhi", "ROOT func generated v2 distribution; phi; Counts", 
-				datavector.size(), 0, datavector.size());
-		
-		for(unsigned int i = 0 ; i< datavector.size() ; i++){
-			hist->SetBinContent(i,datavector.at(i));
-		}	
-		
-		TCanvas* c1 = new TCanvas("c1", "hPhi canvas", 900, 600);
-		
-		
-		
-		//gr->GetXaxis()->SetRangeUser(0,s.datavector.size());
-		//gr->Draw();
-		hist->SetLineColor(35);
-		hist->Draw();
-		//Lhist->SetLineColor(24);
-		//Lhist->Draw("SAME");
-		//cout << s.datavector.size() << endl;
-	}*/
-
-	
-
-
 	void tempPerDayExtended(){
 	
 		vector <float> sumOfData(366,0), countsOfData(366,0);
@@ -180,7 +150,7 @@ class tempTrender {
 				
 			}
 			
-			else if(old_year!=yyyy && start==3){
+			else if(old_year!=yyyy && start==1){
 				
 				
 				mean_temp=(tot_temp)/measurementNo;
@@ -196,26 +166,14 @@ class tempTrender {
 				
 			}
 			
-			else if(start==1){
-				if(yyyy==old_year+1){
-					start=2;
-					old_year=yyyy;				
-			}
-			
 			else if(start==0){
-				old_year=yyyy;
-				start=1;
-				
-			}
-			
-			else if(start==2){
 				
 				old_day=dd;
 				old_year=yyyy;
 				measurementNo=1;
 				dayCount=0;
 				tot_temp=temperature;
-				start=3;
+				start=1;
 				cout << start << endl;
 			}
 			
@@ -241,7 +199,6 @@ class tempTrender {
 		}
 
 		
-		//return avgOfData;
 	}
 	
 		
