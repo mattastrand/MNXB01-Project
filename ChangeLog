@@ -7,3 +7,6 @@
 02/11: Created tempPerDay that averages the temperature every day over a given year. (Mattias, Herman, Leo, Magnus)
 03/11: Have a code that at least produces a graph, though not necessarily the one we want. (Leo, Herman)
 03/11: Succesfully made a histogram of multiple datasets. (Leo, Herman)
+03/11: Created tempPerDayExtended function that averages temp of every day from every year. (Magnus, Mattias)
+03/11: Succesfully plotted tempPerDayExtended and have the current code in working format. (Leo, Magnus, Mattias)
+ 
