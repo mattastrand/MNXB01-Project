@@ -13,6 +13,7 @@
 #include <TMath.h>   
 #include <TCanvas.h> 
 #include <TGraph.h>
+#include <TLegend.h>
 
 using namespace std;
 
