@@ -2,13 +2,7 @@
 #include "tempTrender.h"
 
 
-#include <TF1.h> 
-#include <TH1.h> 
-#include <TStyle.h>  
-#include <TMath.h>   
-#include <TCanvas.h> 
-#include <TGraph.h>
-#include <TAttLine.h>
+
 
 tempTrender::tempTrender(string filePath) {
 	//cout << "The user supplied " << filePath << " as the path to the data file." << endl;
@@ -25,7 +19,8 @@ void testFunc(){
 	string pathToFile = "/home/courseuser/MNXB01/2017HT/Project/datasets/smhi-opendata_Soderarm.csv"; //Put the path to your data file here
 	tempTrender s(pathToFile);
 	s.read_temperatures();
-	s.tempPerDay(1973);
+	//s.tempPerDay(1973);
+	s.tempPerDayExtended();
 
 	/*double xAxis[s.datavector.size()], yAxis[s.datavector.size()];
 	for(unsigned int i = 0; i < s.datavector.size(); i++){
@@ -36,10 +31,10 @@ void testFunc(){
 	//TGraph* gr = new TGraph(s.datavector.size(), xAxis, yAxis);
 	
 	TH1D* hist = new TH1D("hPhi", "ROOT func generated v2 distribution; phi; Counts", 
-			s.datavector.size(), 0, s.datavector.size());
+			s.avgOfData.size(), 0, s.avgOfData.size());
 	
-	for(unsigned int i = 0 ; i< s.datavector.size() ; i++){
-		hist->SetBinContent(i,s.datavector.at(i));
+	for(unsigned int i = 0 ; i< s.avgOfData.size() ; i++){
+		hist->SetBinContent(i,s.avgOfData.at(i));
 	}	
 	
 	TCanvas* c1 = new TCanvas("c1", "hPhi canvas", 900, 600);
@@ -49,8 +44,8 @@ void testFunc(){
 	tempTrender Lund(path2);
 	Lund.read_temperatures();
 	Lund.tempPerDay(1973);
-	
-	
+	*/
+	/*
 	TH1D* Lhist = new TH1D("hPhi", "ROOT func generated v2 distribution; phi; Counts", 
 			Lund.datavector.size(), 0, Lund.datavector.size());
 	for (unsigned int i = 0; i < Lund.datavector.size(); i++){
@@ -62,7 +57,7 @@ void testFunc(){
 	hist->Draw();
 	//Lhist->SetLineColor(24);
 	//Lhist->Draw("SAME");
-	cout << s.datavector.size() << endl;
+	//cout << s.datavector.size() << endl;
 }
 
 int main(){
@@ -79,11 +74,14 @@ int main(){
 	//for ( int i = 0; i < 30; i++){
 	//	cout << t.data_from_file.at(i) << endl;
 	//} 
-	/*
+	
 	t.tempPerDay(1973);
 	cout <<t.datavector.size() << endl;
 	for (unsigned int i= 0; i < t.datavector.size(); i++){
 		cout << t.datavector.at(i) << endl;
 	}
+	t.tempPerDayExtended();
+	//cout << t.datavector.size() << endl;
+	//t.testFunc();
 
 }
