@@ -115,7 +115,7 @@ class tempTrender {
 	//void hotCold(); //Make a histogram of the hottest and coldest day of the year
 	//void tempPerYear(int yearToExtrapolate); //Make a histogram of average temperature per year, then fit and extrapolate to the given year
 	
-	void /*vector <float>*/ tempPerDayExtended(){
+	void tempPerDayExtended(){
 	
 		vector <float> sumOfData(366,0), countsOfData(366,0);
 		for(int k=0; k<=366; k++){
@@ -143,7 +143,7 @@ class tempTrender {
 				
 			}
 			
-			else if(old_year!=yyyy && start==1){
+			else if(old_year!=yyyy && start==3){
 				
 				
 				mean_temp=(tot_temp)/measurementNo;
@@ -159,14 +159,26 @@ class tempTrender {
 				
 			}
 			
+			else if(start==1){
+				if(yyyy==old_year+1){
+					start=2;
+					old_year=yyyy;				
+			}
+			
 			else if(start==0){
+				old_year=yyyy;
+				start=1;
+				
+			}
+			
+			else if(start==2){
 				
 				old_day=dd;
 				old_year=yyyy;
 				measurementNo=1;
 				dayCount=0;
 				tot_temp=temperature;
-				start=1;
+				start=3;
 				cout << start << endl;
 			}
 			
