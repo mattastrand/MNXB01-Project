@@ -6,6 +6,7 @@
 #include <fstream>
 #include <sstream>
 #include <vector>
+
 using namespace std;
 
 class tempTrender {
@@ -73,6 +74,7 @@ class tempTrender {
 		float yyyy, mm, dd, hour, temperature, mean_temp, tot_temp = 0;
 		int old_day = 0 , measurementNo = 0;
 		char d;
+		
 		while (getline(f, line)){
 			stringstream data;
 			data << line;
@@ -96,7 +98,9 @@ class tempTrender {
 				break;
 			}
 		}
+		
 		return datavector;
+
 	} 
 	
 	//void hotCold(); //Make a histogram of the hottest and coldest day of the year
