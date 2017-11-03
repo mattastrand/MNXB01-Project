@@ -2,6 +2,7 @@
 #define TEMPTRENDER_H
 
 #include <string>
+#include <string.h>
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -9,35 +10,53 @@
 using namespace std;
 
 class tempTrender {
-	
 	public:
 	tempTrender(string filePath); //Construct using the specified file
 	~tempTrender();//Destructor
+	
 	
 	vector<string> data_from_file; 		 // Will store every meaningful line from the datasets.
 	
 	vector<string> read_temperatures(){
 	// Let's read a file and store lines with data in a vector.
 		
-		string temp;
-		string input; // Variable that used to fill up the vector.
+		string input, temp, line; // Variable that used to fill up the vector.
+		float yyyy, mm, dd, hour, min, sec, temperature;
+		char d;
 		
 		ifstream file(its_filePath.c_str());
+		ofstream datafile("relevantdata.dat");
+		while(getline(file,line)){
+			if (line == "Datum;Tid (UTC);Lufttemperatur;Kvalitet;;Tidsutsnitt:"){
+				break;
+			}	
+		}
 		
 		while(getline(file,temp)){
 			// Lines ending with Y (bad recordings) are excluded to begin with.
 			input = temp.substr(0,temp.find(";;",0));
 			size_t pos = input.find("Y");
 			input.erase(0,pos +1);
+			
+			if(input != ""){
+				stringstream data;
+				data << input;
+				data >> yyyy >> d >> mm >> d >> dd >> d >> hour >> d >> min >> d >> sec >> d >> temperature >> d ;
+				datafile << yyyy << " " << mm << " " << dd << " " << hour << " " << temperature << endl;
+			}
 			if (input != ""){
 				data_from_file.push_back(input);
 			}
+		
 		}
-		// Now let's reshape the vector and remove the first few lines, which only include text.
-		data_from_file.erase(data_from_file.begin(), data_from_file.begin() + 8); 
-		//data_from_file.erase(remove(data_from_file.begin(), data_from_file.end(), 'Y'), data_from_file.end());
-		//cout << data_from_file[11] << endl; // Checking that the above works.
+		datafile.close();
+		// Now let's reshape the vector and remove meaningless information (lines ending with Y = bad, text)
+		//data_from_file.erase(data_from_file.begin(), data_from_file.begin() + 12); // Removing first 12 lines, which only include text.
+		
+		
 		return data_from_file;
+		
+		
 		
 	}
 	
