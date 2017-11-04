@@ -20,7 +20,9 @@ void testFunc(){
 	TLegend *leg = new TLegend(0.50,0.5,0.75, 0.3);
 	
 	//Below is how the histogram for any dataset is constructed. 
-	
+	//The histograms are pretty neatly set up at the moment.
+	//To use them, just uncomment relevant lines, and make sure that they are all drawn 
+	// to the same canvas.
 	
 	
 	//string pathSoder = "/home/courseuser/MNXB01/2017HT/Project/datasets/smhi-opendata_Soderarm.csv"; //Put the path to your data file here
@@ -43,49 +45,80 @@ void testFunc(){
 	
 	//for(unsigned int i = 0 ; i< Soder.avgOfData.size() ; i++){
 		//SoderHist->SetBinContent(i,Soder.avgOfData.at(i));
-
+	//}
 	
-
+	
+	//Soder.tempEveryYear();
+	
+	//TH1D* SoderHist = new TH1D("Soder", "Soderarm; Year; Temperature",
+			//Soder.yearNumber.size()-1, Soder.yearNumber.front(), Soder.yearNumber.back()-1);
+	
+	//for (unsigned int i = 0; i< Soder.yearNumber.size(); i++){
+		//SoderHist->SetBinContent(i,Soder.yearTemp.at(i));
 	//}
 	
 	//leg->AddEntry(SoderHist, "", "F");
-	//SoderHist->SetLineColor(35);
+	//SoderHist->SetLineColor(11);
 	//SoderHist->SetMinimum(-20);
-	//SoderHist->SetMaximum(30),
+	//SoderHist->SetMaximum(30);
 	//SoderHist->Draw();
 	
 	
 	
-	string pathUpp = "/home/courseuser/MNXB01/2017HT/Project/datasets/uppsala_tm_1722-2013.dat";
-	tempTrender Upp(pathUpp);
+	//string pathUpp = "/home/courseuser/MNXB01/2017HT/Project/datasets/uppsala_tm_1722-2013.dat";
+	//tempTrender Upp(pathUpp);
 	
-	Upp.read_temperatures();
+	//Upp.read_temperatures();
 	
-	Upp.tempPerDayExtended();
+	//Upp.tempPerDayExtended();
 	
-	TH1D* UppHist = new TH1D ("hPhi", "Uppsala; Day; Temperature", 
-			Upp.avgOfData.size(), 0, Upp.avgOfData.size());
+	//TH1D* UppHist = new TH1D ("hPhi", "Uppsala; Day; Temperature", 
+			//Upp.avgOfData.size(), 0, Upp.avgOfData.size());
 			
-	for(unsigned int i = 0 ; i< Upp.avgOfData.size() ; i++){
-		UppHist->SetBinContent(i,Upp.avgOfData.at(i));
-	}
+	//for(unsigned int i = 0 ; i< Upp.avgOfData.size() ; i++){
+		//UppHist->SetBinContent(i,Upp.avgOfData.at(i));
+	//}
 	
-	leg->AddEntry(UppHist, "", "F");
-	UppHist->SetLineColor(35);
-	UppHist->SetMinimum(-20);
-	UppHist->SetMaximum(30),
-	UppHist->Draw();
 	
-	TH1D* UrbanUppHist = new TH1D ("hPhi", "Uppsala Urban; Day; Temperature", 
-			Upp.urbanAvgOfData.size(), 0, Upp.urbanAvgOfData.size());
+	//Upp.tempEveryYear();
+	
+	//TH1D* UppHist = new TH1D("Upp", "Uppsala; Year; Temperature",
+			//Upp.yearNumber.size()-1, Upp.yearNumber.front(), Upp.yearNumber.back()-1);
+	
+	//for (unsigned int i = 0; i< Upp.yearNumber.size(); i++){
+		//UppHist->SetBinContent(i,Upp.yearTemp.at(i));
+	//}
+	
+	
+	//UppHist->SetLineColor(35);
+	//UppHist->SetMinimum(-20);
+	//UppHist->SetMaximum(30),
+	//UppHist->Draw();
+	
+	//TH1D* UrbanUppHist = new TH1D ("hPhi", "Uppsala Urban; Day; Temperature", 
+			//Upp.urbanAvgOfData.size(), 0, Upp.urbanAvgOfData.size());
 			
-	for(unsigned int i = 0 ; i< Upp.urbanAvgOfData.size() ; i++){
-		UrbanUppHist->SetBinContent(i,Upp.urbanAvgOfData.at(i));
-	}
+	//for(unsigned int i = 0 ; i< Upp.urbanAvgOfData.size() ; i++){
+		//UrbanUppHist->SetBinContent(i,Upp.urbanAvgOfData.at(i));
+	//}
 	
-	leg->AddEntry(UrbanUppHist, "", "F");
-	UrbanUppHist->Draw("SAME");
-	leg->Draw();
+	
+	//TH1D* UrbanUppHist = new TH1D("Upp", "Uppsala Urban; Year; Temperature",
+			//Upp.yearNumber.size()-1, Upp.yearNumber.front(), Upp.yearNumber.back()-1);
+	
+	//for (unsigned int i = 0; i< Upp.yearNumber.size(); i++){
+		//UrbanUppHist->SetBinContent(i,Upp.urbanYearTemp.at(i));
+	//}
+	
+	
+	//leg->AddEntry(UppHist, "", "F");
+	//leg->AddEntry(UrbanUppHist, "", "F");
+	//UrbanUppHist->Draw("SAME");
+	//leg->Draw();
+	
+	
+	//SoderHist->Draw("Same");
+	
 	
 	//string pathLund = "/home/courseuser/MNXB01/2017HT/Project/datasets/smhi-opendata_Lund.csv";
 	//tempTrender Lund(pathLund);
@@ -132,6 +165,10 @@ void testFunc(){
 	//for(unsigned int i = 0 ; i< Lule.datavector.size() ; i++){
 		//LuleHist->SetBinContent(i,Lule.datavector.at(i));
 	//}
+	
+	
+	
+	
 	
 	
 	//Lule.tempPerDayExtended();
