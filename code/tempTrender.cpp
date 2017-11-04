@@ -2,8 +2,6 @@
 #include "tempTrender.h"
 
 
-
-
 tempTrender::tempTrender(string filePath) {
 	//cout << "The user supplied " << filePath << " as the path to the data file." << endl;
 	//cout << "You should probably store this information in a member variable of the class. Good luck with the project! :)" << endl;
@@ -35,6 +33,9 @@ void testFunc(){
 	
 	for(unsigned int i = 0 ; i< Soder.avgOfData.size() ; i++){
 		SoderHist->SetBinContent(i,Soder.avgOfData.at(i));
+
+	
+
 	}	
 	
 	leg->AddEntry(SoderHist, "", "F");
@@ -45,9 +46,12 @@ void testFunc(){
 	
 	
 	
+
 	string pathLund = "/home/courseuser/MNXB01/2017HT/Project/datasets/smhi-opendata_Lund.csv";
 	tempTrender Lund(pathLund);
+
 	Lund.read_temperatures();
+
 	//Lund.tempPerDay(1973);
 	Lund.tempPerDayExtended();
 	
@@ -75,7 +79,7 @@ void testFunc(){
 	for (unsigned int i = 0; i < Lule.avgOfData.size(); i++){
 		LuleHist->SetBinContent(i,Lule.avgOfData.at(i));
 	}
-	
+		
 	leg->AddEntry(LuleHist, "", "F");
 	LuleHist->SetLineColor(12);
 	LuleHist->Draw("SAME");
@@ -92,12 +96,7 @@ int main(){
 	tempTrender t(pathToFile);
 	t.read_temperatures();
 	
-	
 	t.tempPerDay(1973);
-	cout <<t.datavector.size() << endl;
-	for (unsigned int i= 0; i < t.datavector.size(); i++){
-		cout << t.datavector.at(i) << endl;
-	}
 	t.tempPerDayExtended();
 	*/
 }

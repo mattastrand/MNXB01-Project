@@ -10,4 +10,5 @@
 03/11: Created tempPerDayExtended function that averages temp of every day from every year. (Magnus, Mattias)
 03/11: Succesfully plotted tempPerDayExtended and have the current code in working format. (Leo, Magnus, Mattias)
 03/11: Added legends to the plots in the previous stable version. (Leo)
+04/11: Added function keep track to properly match the temperature with the day. (Magnus)
  

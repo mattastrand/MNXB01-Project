@@ -6,7 +6,6 @@
 #include <fstream>
 #include <sstream>
 #include <vector>
-
 #include <TF1.h> 
 #include <TH1.h> 
 #include <TStyle.h>  
@@ -14,6 +13,7 @@
 #include <TCanvas.h> 
 #include <TGraph.h>
 #include <TLegend.h>
+#include "keepTrack.cpp"
 
 using namespace std;
 
@@ -148,7 +148,6 @@ class tempTrender {
 	
 	
 	
-	
 	/*void testFunc(){
 		//TGraph* gr = new TGraph(s.datavector.size(), xAxis, yAxis);
 		
@@ -181,6 +180,7 @@ class tempTrender {
 		//The day is counted as the number of days since the start of the year.
 		//This means that February 29th appears in the 60th position every four years,
 		//and every other day is pushed back, so that the last entry is December 31st every four years. 
+
 		vector <float> sumOfData(366,0), countsOfData(366,0);
 		
 		
@@ -193,14 +193,13 @@ class tempTrender {
 		
 		//As this function runs over every year, it handles the change of year in the same
 		float temperature, mean_temp, tot_temp = 0;
-		int old_day = 0, old_year=0, measurementNo = 0, start=0, dayCount=0, yyyy, mm, dd, hour; 
+		int old_day = 0, old_year=0, measurementNo = 0, start=0, yyyy, mm, dd, hour, old_month=0; 
 		cout << "start " << start << endl;
 		while(getline(file,line)){
 			
 			stringstream data;
 			data << line;
 			data >> yyyy >> mm >> dd >> hour >> temperature;
-			//cout << yyyy <<" "<< mm <<" "<< dd <<" "<< hour <<" " << temperature << endl;
 			
 			if(old_day==dd && start==1){
 				old_day=dd;
@@ -210,43 +209,45 @@ class tempTrender {
 				
 			}
 			
-			else if(old_year!=yyyy && start==1){
+			else if((old_year+1)==yyyy && start==1){
 				
 				
 				mean_temp=(tot_temp)/measurementNo;
-				sumOfData[dayCount]+=mean_temp;
-				countsOfData[dayCount]+=1;	
+				sumOfData[::keepTrack(old_year,old_month,old_day)-1]+=mean_temp;
+				countsOfData[::keepTrack(old_year,old_month, old_day)-1]+=1;	
 				
 				tot_temp=temperature;
 				old_day=dd;
+				old_month=mm;
 				old_year=yyyy;
-				dayCount=0;
 				measurementNo=1;
 				
 				
 			}
 			
+			
 			else if(start==0){
 				
 				old_day=dd;
+				old_month=mm;
 				old_year=yyyy;
 				measurementNo=1;
-				dayCount=0;
 				tot_temp=temperature;
+				cout << "Start " << start << endl;
+				cout << yyyy <<" "<< mm <<" "<< dd <<" "<< hour <<" " << temperature << endl;
 				start=1;
-				cout << start << endl;
 			}
 			
 			else{
 				
 				mean_temp=(tot_temp)/measurementNo;
-				sumOfData[dayCount]+=mean_temp;
-				countsOfData[dayCount]+=1;
+				sumOfData[::keepTrack(old_year,old_month, old_day)-1]+=mean_temp;
+				countsOfData[::keepTrack(old_year,old_month,old_day)-1]+=1;
 				
 				tot_temp=temperature;
 				old_day=dd;
-				measurementNo=1;
-				dayCount+=1;				
+				old_month=mm;
+				measurementNo=1;			
 				
 			}
 		
@@ -259,7 +260,6 @@ class tempTrender {
 		}
 
 		
-		//return avgOfData;
 	}
 	
 		
