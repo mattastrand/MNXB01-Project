@@ -96,7 +96,7 @@ void plotTempLocation(){
 	h1b->SetMinimum(-5);
 	h1b->SetMaximum(15);
 	h1b->SetBinContent(1,Soder.warmAndCold[0]);
-	h1b->GetXaxis()->SetBinLabel(1,"Soderarm \n 2015 (red), 1985 (blue)");
+	h1b->GetXaxis()->SetBinLabel(1,"Soderarm \n 2008 (red), 1985 (blue)");
 	//h1b->Fill(1,Soder.warmAndCold[1]);
 	h1b->SetBinContent(2,Upp.warmAndCold[0]);
 	h1b->GetXaxis()->SetBinLabel(2,"Uppsala \n 1723, 1867");
@@ -111,7 +111,7 @@ void plotTempLocation(){
 	h1b->SetBinContent(7,Falster.warmAndCold[0]);
 	h1b->GetXaxis()->SetBinLabel(7,"Falsterbo \n 2014, 1979");
 	h1b->SetBinContent(8,Umea.warmAndCold[0]);
-	h1b->GetXaxis()->SetBinLabel(8,"Umea \n 2015, 1985");
+	h1b->GetXaxis()->SetBinLabel(8,"Umea \n 2014, 1985");
 	h1b->SetBinContent(9,Karl.warmAndCold[0]);
 	h1b->GetXaxis()->SetBinLabel(9,"Karlstad \n 1955, 1987");
 	h1b->SetBinContent(10,Visby.warmAndCold[0]);
