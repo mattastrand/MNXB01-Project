@@ -47,8 +47,9 @@
 ./tempTrender_cpp.so: /usr/include/root/TPoint.h
 ./tempTrender_cpp.so: /usr/include/root/TAttCanvas.h
 ./tempTrender_cpp.so: /usr/include/root/TCanvasImp.h
-./tempTrender_cpp.so: /usr/include/root/TGraph.h /usr/include/root/TLegend.h
-./tempTrender_cpp.so: /usr/include/root/TPave.h /usr/include/root/TBox.h
+./tempTrender_cpp.so: /usr/include/root/THStack.h /usr/include/root/TGraph.h
+./tempTrender_cpp.so: /usr/include/root/TLegend.h /usr/include/root/TPave.h
+./tempTrender_cpp.so: /usr/include/root/TBox.h /usr/include/root/TColor.h
 ./tempTrender_cpp.so: keepTrack.cpp
 ./tempTrender_cpp.so: /usr/include/root/cintdictversion.h /usr/include/root/RVersion.h
 tempTrender_cpp__ROOTBUILDVERSION= 5.34/30

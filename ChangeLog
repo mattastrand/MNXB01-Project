@@ -14,3 +14,4 @@
 04/11: Changed the header to work for the Uppsala data set, and modified the functions to handle that case. (Leo, Magnus)
 04/11: Added another function (tempEveryYear) that calculates the average temperature per year for every year in any dataset. (Leo, Magnus)
 04/11: Added a for loop to tempEveryYear that finds the warmest and coldest years in a dataset and stores them in a vector. (Mattias)
+05/11: Made two new .cpp files for plotting, one for tempPerDayExtended and one to plot the hottest and coldest year at each location. (Mattias, Leo, Herman, Magnus)
