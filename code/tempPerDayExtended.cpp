@@ -64,37 +64,37 @@ void plotTempExtended(){
 	
 	
 	
-	//string pathUpp = "/home/courseuser/MNXB01/2017HT/Project/datasets/uppsala_tm_1722-2013.dat";
-	//tempTrender Upp(pathUpp);
+	string pathUpp = "/home/courseuser/MNXB01/2017HT/Project/datasets/uppsala_tm_1722-2013.dat";
+	tempTrender Upp(pathUpp);
 	
-	//Upp.read_temperatures();
+	Upp.read_temperatures();
 	
-	//Upp.tempPerDayExtended();
+	Upp.tempPerDayExtended();
 	
-	//TH1D* UppHist = new TH1D ("hPhi", "Uppsala; Day; Temperature", 
-			//Upp.avgOfData.size()-1 , 0, Upp.avgOfData.size());
+	TH1D* UppHist = new TH1D ("hPhi", "Uppsala; Day; Temperature", 
+			Upp.avgOfData.size()-1 , 0, Upp.avgOfData.size());
 			
-	//for(unsigned int i = 0 ; i< Upp.avgOfData.size() ; i++){
-		//UppHist->SetBinContent(i,Upp.avgOfData.at(i));
-	//}
+	for(unsigned int i = 0 ; i< Upp.avgOfData.size() ; i++){
+		UppHist->SetBinContent(i,Upp.avgOfData.at(i));
+	}
 
-	//UppHist->SetLineColor(kMagenta);
-	//UppHist->SetMinimum(-20);
-	//UppHist->SetMaximum(30),
-	//UppHist->Draw("SAME");
+	UppHist->SetLineColor(kMagenta);
+	UppHist->SetMinimum(-20);
+	UppHist->SetMaximum(30),
+	UppHist->Draw("SAME");
 	
-	//TH1D* UrbanUppHist = new TH1D ("hPhi", "Uppsala Urban; Day; Temperature", 
-			//Upp.urbanAvgOfData.size() -1, 0, Upp.urbanAvgOfData.size());
+	TH1D* UrbanUppHist = new TH1D ("hPhi", "Uppsala Urban; Day; Temperature", 
+			Upp.urbanAvgOfData.size() -1, 0, Upp.urbanAvgOfData.size());
 			
-	//for(unsigned int i = 0 ; i< Upp.urbanAvgOfData.size() ; i++){
-		//UrbanUppHist->SetBinContent(i,Upp.urbanAvgOfData.at(i));
-	//}
+	for(unsigned int i = 0 ; i< Upp.urbanAvgOfData.size() ; i++){
+		UrbanUppHist->SetBinContent(i,Upp.urbanAvgOfData.at(i));
+	}
 
 	
-	//leg->AddEntry(UppHist, "", "L");
-	//leg->AddEntry(UrbanUppHist, "", "L");
-	//UrbanUppHist->SetLineColor(kMagenta +3);
-	//UrbanUppHist->Draw("SAME");
+	leg->AddEntry(UppHist, "", "L");
+	leg->AddEntry(UrbanUppHist, "", "L");
+	UrbanUppHist->SetLineColor(kMagenta +3);
+	UrbanUppHist->Draw("SAME");
 	
 	
 	
@@ -102,169 +102,169 @@ void plotTempExtended(){
 	
 	
 	
-	//string pathLund = "/home/courseuser/MNXB01/2017HT/Project/datasets/smhi-opendata_Lund.csv";
-	//tempTrender Lund(pathLund);
+	string pathLund = "/home/courseuser/MNXB01/2017HT/Project/datasets/smhi-opendata_Lund.csv";
+	tempTrender Lund(pathLund);
 
-	//Lund.read_temperatures();
-
-	
-	
-	//Lund.tempPerDayExtended();
-	
-	//TH1D* LundHist = new TH1D("hPhi", "Lund; phi; Counts", 
-			//Lund.avgOfData.size() -1, 0, Lund.avgOfData.size());
-	
-	//for (unsigned int i = 0; i < Lund.avgOfData.size(); i++){
-		//LundHist->SetBinContent(i,Lund.avgOfData.at(i));
-	//}
-	
-	//leg->AddEntry(LundHist, "", "L");
-	//LundHist->SetLineColor(kBlue);
-	//LundHist->Draw("SAME");
-	
-	
-	
-	
-	
-	
-	//string pathLule = "/home/courseuser/MNXB01/2017HT/Project/datasets/smhi-opendata_Lulea.csv";
-	//tempTrender Lule(pathLule);
-	//Lule.read_temperatures();
+	Lund.read_temperatures();
 
 	
 	
-	//Lule.tempPerDayExtended();
+	Lund.tempPerDayExtended();
 	
-	//TH1D* LuleHist = new TH1D("hPhi", "Lulea; phi; Counts", 
-			//Lule.avgOfData.size() -1, 0, Lule.avgOfData.size());
+	TH1D* LundHist = new TH1D("hPhi", "Lund; phi; Counts", 
+			Lund.avgOfData.size() -1, 0, Lund.avgOfData.size());
 	
-	//for (unsigned int i = 0; i < Lule.avgOfData.size(); i++){
-		//LuleHist->SetBinContent(i,Lule.avgOfData.at(i));
-	//}
+	for (unsigned int i = 0; i < Lund.avgOfData.size(); i++){
+		LundHist->SetBinContent(i,Lund.avgOfData.at(i));
+	}
+	
+	leg->AddEntry(LundHist, "", "L");
+	LundHist->SetLineColor(kBlue);
+	LundHist->Draw("SAME");
+	
+	
+	
+	
+	
+	
+	string pathLule = "/home/courseuser/MNXB01/2017HT/Project/datasets/smhi-opendata_Lulea.csv";
+	tempTrender Lule(pathLule);
+	Lule.read_temperatures();
+
+	
+	
+	Lule.tempPerDayExtended();
+	
+	TH1D* LuleHist = new TH1D("hPhi", "Lulea; phi; Counts", 
+			Lule.avgOfData.size() -1, 0, Lule.avgOfData.size());
+	
+	for (unsigned int i = 0; i < Lule.avgOfData.size(); i++){
+		LuleHist->SetBinContent(i,Lule.avgOfData.at(i));
+	}
 		
-	//leg->AddEntry(LuleHist, "", "L");
-	//LuleHist->SetLineColor(kCyan);
-	//LuleHist->Draw("SAME");
+	leg->AddEntry(LuleHist, "", "L");
+	LuleHist->SetLineColor(kCyan);
+	LuleHist->Draw("SAME");
 	
 	
 	
 	
-	//string pathBoras = "/home/courseuser/MNXB01/2017HT/Project/datasets/smhi-opendata_Boras.csv";
-	//tempTrender Boras(pathBoras);
-	//Boras.read_temperatures();
+	string pathBoras = "/home/courseuser/MNXB01/2017HT/Project/datasets/smhi-opendata_Boras.csv";
+	tempTrender Boras(pathBoras);
+	Boras.read_temperatures();
 	
-	//Boras.tempPerDayExtended();
+	Boras.tempPerDayExtended();
 	
-	//TH1D* BorasHist = new TH1D("hPhi", "Boras; phi; Counts", 
-			//Boras.avgOfData.size() -1, 0, Boras.avgOfData.size());
+	TH1D* BorasHist = new TH1D("hPhi", "Boras; phi; Counts", 
+			Boras.avgOfData.size() -1, 0, Boras.avgOfData.size());
 	
-	//for (unsigned int i = 0; i < Boras.avgOfData.size(); i++){
-		//BorasHist->SetBinContent(i,Boras.avgOfData.at(i));
-	//}
+	for (unsigned int i = 0; i < Boras.avgOfData.size(); i++){
+		BorasHist->SetBinContent(i,Boras.avgOfData.at(i));
+	}
 		
-	//leg->AddEntry(BorasHist, "", "L");
-	//BorasHist->SetLineColor(kGreen);
-	//BorasHist->Draw("SAME");
+	leg->AddEntry(BorasHist, "", "L");
+	BorasHist->SetLineColor(kGreen);
+	BorasHist->Draw("SAME");
 	
 	
-	//string pathFalun = "/home/courseuser/MNXB01/2017HT/Project/datasets/smhi-opendata_Falun.csv";
-	//tempTrender Falun(pathFalun);
-	//Falun.read_temperatures();
+	string pathFalun = "/home/courseuser/MNXB01/2017HT/Project/datasets/smhi-opendata_Falun.csv";
+	tempTrender Falun(pathFalun);
+	Falun.read_temperatures();
 	
 	
-	//Falun.tempPerDayExtended();
+	Falun.tempPerDayExtended();
 	
-	//TH1D* FalunHist = new TH1D("hPhi", "Fauln; phi; Counts", 
-			//Falun.avgOfData.size() -1, 0, Falun.avgOfData.size());
+	TH1D* FalunHist = new TH1D("hPhi", "Fauln; phi; Counts", 
+			Falun.avgOfData.size() -1, 0, Falun.avgOfData.size());
 	
-	//for (unsigned int i = 0; i < Falun.avgOfData.size(); i++){
-		//FalunHist->SetBinContent(i,Falun.avgOfData.at(i));
-	//}
+	for (unsigned int i = 0; i < Falun.avgOfData.size(); i++){
+		FalunHist->SetBinContent(i,Falun.avgOfData.at(i));
+	}
 		
-	//leg->AddEntry(FalunHist, "", "L");
-	//FalunHist->SetLineColor(kGreen +2);
-	//FalunHist->Draw("SAME");
+	leg->AddEntry(FalunHist, "", "L");
+	FalunHist->SetLineColor(kGreen +2);
+	FalunHist->Draw("SAME");
 	
 	
 	
 	
-	//string pathFalster = "/home/courseuser/MNXB01/2017HT/Project/datasets/smhi-opendata_Falsterbo.csv";
-	//tempTrender Falster(pathFalster);
-	//Falster.read_temperatures();
+	string pathFalster = "/home/courseuser/MNXB01/2017HT/Project/datasets/smhi-opendata_Falsterbo.csv";
+	tempTrender Falster(pathFalster);
+	Falster.read_temperatures();
 	
 	
-	//Falster.tempPerDayExtended();
+	Falster.tempPerDayExtended();
 	
-	//TH1D* FalsterHist = new TH1D("hPhi", "Falsterbo; phi; Counts", 
-			//Falster.avgOfData.size()-1 , 0, Falster.avgOfData.size());
+	TH1D* FalsterHist = new TH1D("hPhi", "Falsterbo; phi; Counts", 
+			Falster.avgOfData.size()-1 , 0, Falster.avgOfData.size());
 	
-	//for (unsigned int i = 0; i < Falster.avgOfData.size(); i++){
-		//FalsterHist->SetBinContent(i,Falster.avgOfData.at(i));
-	//}
+	for (unsigned int i = 0; i < Falster.avgOfData.size(); i++){
+		FalsterHist->SetBinContent(i,Falster.avgOfData.at(i));
+	}
 		
-	//leg->AddEntry(FalsterHist, "", "L");
-	//FalsterHist->SetLineColor(kGray+2);
-	//FalsterHist->Draw("SAME");
+	leg->AddEntry(FalsterHist, "", "L");
+	FalsterHist->SetLineColor(kGray+2);
+	FalsterHist->Draw("SAME");
 	
 	
 	
 	
-	//string pathUmea = "/home/courseuser/MNXB01/2017HT/Project/datasets/smhi-opendata_Umea.csv";
-	//tempTrender Umea(pathUmea);
-	//Umea.read_temperatures();
+	string pathUmea = "/home/courseuser/MNXB01/2017HT/Project/datasets/smhi-opendata_Umea.csv";
+	tempTrender Umea(pathUmea);
+	Umea.read_temperatures();
 	
 	
-	//Umea.tempPerDayExtended();
+	Umea.tempPerDayExtended();
 	
-	//TH1D* UmeaHist = new TH1D("hPhi", "Umea; phi; Counts", 
-			//Umea.avgOfData.size()-1 , 0, Umea.avgOfData.size());
+	TH1D* UmeaHist = new TH1D("hPhi", "Umea; phi; Counts", 
+			Umea.avgOfData.size()-1 , 0, Umea.avgOfData.size());
 	
-	//for (unsigned int i = 0; i < Umea.avgOfData.size(); i++){
-		//UmeaHist->SetBinContent(i,Umea.avgOfData.at(i));
-	//}
-	//leg->AddEntry(UmeaHist, "", "L");
-	//UmeaHist->SetLineColor(kBlue-6);
-	//UmeaHist->Draw("SAME");
-	
-	
-	
-	
-	//string pathKarl = "/home/courseuser/MNXB01/2017HT/Project/datasets/smhi-openda_Karlstad.csv";
-	//tempTrender Karl(pathKarl);
-	//Karl.read_temperatures();
-	
-	
-	//Karl.tempPerDayExtended();
-	
-	//TH1D* KarlHist = new TH1D("hPhi", "Karlstad; phi; Counts", 
-			//Karl.avgOfData.size()-1 , 0, Karl.avgOfData.size());
-	
-	//for (unsigned int i = 0; i < Karl.avgOfData.size(); i++){
-		//KarlHist->SetBinContent(i,Karl.avgOfData.at(i));
-	//}
-	//leg->AddEntry(KarlHist, "", "L");
-	//KarlHist->SetLineColor(kOrange +7);
-	//KarlHist->Draw("SAME");
+	for (unsigned int i = 0; i < Umea.avgOfData.size(); i++){
+		UmeaHist->SetBinContent(i,Umea.avgOfData.at(i));
+	}
+	leg->AddEntry(UmeaHist, "", "L");
+	UmeaHist->SetLineColor(kBlue-6);
+	UmeaHist->Draw("SAME");
 	
 	
 	
 	
-	//string pathVisby ="/home/courseuser/MNXB01/2017HT/Project/datasets/smhi-opendata_Visby.csv";
-	//tempTrender Visby(pathVisby);
-	//Visby.read_temperatures();
+	string pathKarl = "/home/courseuser/MNXB01/2017HT/Project/datasets/smhi-openda_Karlstad.csv";
+	tempTrender Karl(pathKarl);
+	Karl.read_temperatures();
 	
 	
-	//Visby.tempPerDayExtended();
+	Karl.tempPerDayExtended();
 	
-	//TH1D* VisbyHist = new TH1D("hPhi", "Visby; phi; Counts", 
-			//Visby.avgOfData.size()-1 , 0, Visby.avgOfData.size());
+	TH1D* KarlHist = new TH1D("hPhi", "Karlstad; phi; Counts", 
+			Karl.avgOfData.size()-1 , 0, Karl.avgOfData.size());
 	
-	//for (unsigned int i = 0; i < Visby.avgOfData.size(); i++){
-		//VisbyHist->SetBinContent(i,Visby.avgOfData.at(i));
-	//}
-	//leg->AddEntry(VisbyHist, "", "L");
-	//VisbyHist->SetLineColor(kBlack);
-	//VisbyHist->Draw("SAME");
+	for (unsigned int i = 0; i < Karl.avgOfData.size(); i++){
+		KarlHist->SetBinContent(i,Karl.avgOfData.at(i));
+	}
+	leg->AddEntry(KarlHist, "", "L");
+	KarlHist->SetLineColor(kOrange +7);
+	KarlHist->Draw("SAME");
+	
+	
+	
+	
+	string pathVisby ="/home/courseuser/MNXB01/2017HT/Project/datasets/smhi-opendata_Visby.csv";
+	tempTrender Visby(pathVisby);
+	Visby.read_temperatures();
+	
+	
+	Visby.tempPerDayExtended();
+	
+	TH1D* VisbyHist = new TH1D("hPhi", "Visby; phi; Counts", 
+			Visby.avgOfData.size()-1 , 0, Visby.avgOfData.size());
+	
+	for (unsigned int i = 0; i < Visby.avgOfData.size(); i++){
+		VisbyHist->SetBinContent(i,Visby.avgOfData.at(i));
+	}
+	leg->AddEntry(VisbyHist, "", "L");
+	VisbyHist->SetLineColor(kBlack);
+	VisbyHist->Draw("SAME");
 	
 	
 	

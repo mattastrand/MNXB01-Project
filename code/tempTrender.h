@@ -327,8 +327,9 @@ class tempTrender {
 		float warmestYear, coldestYear, warmestTemp, coldestTemp, newTemp;
 		int flag = 0;
 		
+
 		for (unsigned int i = 0; i < yearTemp.size()-1; i++){ // Go through all of the yearTemp vector, created above. Exclude year 2015 as it might have incomplete data.
-			
+
 			newTemp = yearTemp[i]; // Each time we go through the loop, newTemp stores the element of yearTemp corresponding to the current iteration number.
 			
 			if (flag == 1){

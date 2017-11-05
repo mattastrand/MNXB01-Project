@@ -58,6 +58,7 @@
 ./tempPerDayExtended_cpp.so: /usr/include/root/TPoint.h
 ./tempPerDayExtended_cpp.so: /usr/include/root/TAttCanvas.h
 ./tempPerDayExtended_cpp.so: /usr/include/root/TCanvasImp.h
+./tempPerDayExtended_cpp.so: /usr/include/root/THStack.h
 ./tempPerDayExtended_cpp.so: /usr/include/root/TGraph.h
 ./tempPerDayExtended_cpp.so: /usr/include/root/TLegend.h
 ./tempPerDayExtended_cpp.so: /usr/include/root/TPave.h

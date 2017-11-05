@@ -37,24 +37,24 @@ void testFunc(){
 	Soder.read_temperatures();
 	
 	
-	//Soder.tempPerDay(1973);
+	Soder.tempPerDay(1973);
 	
-	//TH1D* SoderHist = new TH1D("hPhi", "Soderarm; Day; Temperature", 
-			//Soder.datavector.size() -1, 0, Soder.datavector.size());
+	TH1D* SoderHist = new TH1D("hPhi", "Soderarm; Day; Temperature", 
+			Soder.datavector.size() -1, 0, Soder.datavector.size());
 	
-	//for(unsigned int i = 0 ; i< Soder.datavector.size() ; i++){
-		//SoderHist->SetBinContent(i,Soder.datavector.at(i));
-	//}
+	for(unsigned int i = 0 ; i< Soder.datavector.size() ; i++){
+		SoderHist->SetBinContent(i,Soder.datavector.at(i));
+	}
 
 	
-	Soder.tempEveryYear();
+	//Soder.tempEveryYear();
 	
-	TH1D* SoderHist = new TH1D("Soder", "Soderarm; Year; Temperature",
-			Soder.yearNumber.size()-1, Soder.yearNumber.front(), Soder.yearNumber.back()-1);
+	//TH1D* SoderHist = new TH1D("Soder", "Soderarm; Year; Temperature",
+			//Soder.yearNumber.size()-1, Soder.yearNumber.front(), Soder.yearNumber.back()-1);
 	
-	for (unsigned int i = 0; i< Soder.yearNumber.size(); i++){
-		SoderHist->SetBinContent(i,Soder.yearTemp.at(i));
-	}
+	//for (unsigned int i = 0; i< Soder.yearNumber.size(); i++){
+		//SoderHist->SetBinContent(i,Soder.yearTemp.at(i));
+	//}
 	
 	//cout << SoderHist->GetBinContent(SoderHist->GetMinimumBin()) << endl;
 	//cout << Soder.yearNumber.at(SoderHist->GetMinimumBin()) << endl;
@@ -90,6 +90,10 @@ void testFunc(){
 		//UppHist->SetBinContent(i,Upp.yearTemp.at(i));
 	//}
 	
+	//cout << UppHist->GetBinContent(UppHist->GetMinimumBin()) << endl;
+	////cout << Upp.yearNumber.at(UppHist->GetMinimumBin()) << endl;
+	//cout << UppHist->GetBinContent(UppHist->GetMaximumBin()) << endl;
+	////cout << Upp.yearNumber.at(UppHist->GetMaximumBin()) << endl;
 	
 	//UppHist->SetLineColor(kMagenta);
 	//UppHist->SetMinimum(-20);
@@ -186,11 +190,12 @@ void testFunc(){
 
 int main(){
 
-	//string pathToFile = "/home/courseuser/MNXB01/2017HT/Project/datasets/uppsala_tm_1722-2013.dat";
-	//tempTrender Upp(pathToFile);
-	//Upp.read_temperatures();
-	//Upp.tempPerDayExtended();
-	//Upp.tempEveryYear();
+	string pathToFile = "/home/courseuser/MNXB01/2017HT/Project/datasets/uppsala_tm_1722-2013.dat";
+	tempTrender Upp(pathToFile);
+	Upp.read_temperatures();
+	Upp.tempPerDayExtended();
+	Upp.tempEveryYear();
+	cout <<"Upp " << Upp.warmAndCold[1] << "," << Upp.warmAndCold[3] << endl;
 
 
 
