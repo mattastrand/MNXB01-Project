@@ -76,6 +76,7 @@ void testFunc(){
 
 	//string pathUpp = "/home/courseuser/MNXB01/2017HT/Project/datasets/uppsala_tm_1722-2013.dat";
 	//tempTrender Upp(pathUpp);
+
 	
 	//Upp.read_temperatures();
 
@@ -184,43 +185,13 @@ void testFunc(){
 }
 
 int main(){
+
 	//string pathToFile = "/home/courseuser/MNXB01/2017HT/Project/datasets/uppsala_tm_1722-2013.dat";
 	//tempTrender Upp(pathToFile);
 	//Upp.read_temperatures();
 	//Upp.tempPerDayExtended();
 	//Upp.tempEveryYear();
-	//cout << Upp.warmAndCold.size() << endl;
-	//for (unsigned int i = 0; i < Upp.warmAndCold.size(); i ++){
-		//cout << Upp.warmAndCold[i] << endl;
-	//}
-	//Upp.tempPerDay(1973);
-	//for (unsigned int i = 0; i< Upp.datavector.size();i++){
-		//cout << Upp.datavector.at(i) << endl;
-		//cout << Upp.urbanDatavector.at(i) << endl;
-	//}
 
-	//string pathLule = "/home/courseuser/MNXB01/2017HT/Project/datasets/smhi-opendata_Lulea.csv";
-	//tempTrender Lule(pathLule);
-	//Lule.read_temperatures();
-	//Lule.tempPerDay(1973);
-	//for (unsigned int i = 0 ; i< Lule.datavector.size(); i++){
-		//cout << Lule.datavector.at(i) << endl;
-	//}
-	//Lule.tempEveryYear();
-	//for (unsigned int i = 0; i < Lule.yearTemp.size(); i ++){
-		//cout << "temp " << Lule.yearTemp[i] << " at year " << Lule.yearNumber[i] << endl;
-	//}
-	//cout << Lule.warmAndCold.size() << endl;
-	//for (unsigned int i = 0; i < Lule.warmAndCold.size(); i ++){
-		//cout << Lule.warmAndCold[i] << endl;
-	//}
-	
-	//string pathToFile = "/home/courseuser/MNXB01/2017HT/Project/datasets/smhi-opendata_Lund.csv"; //Put the path to your data file here
 
-	//tempTrender t(pathToFile);
-	//t.read_temperatures();
-	
-	//t.tempPerDay(1973);
-	//t.tempPerDayExtended();
 
 }

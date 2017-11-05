@@ -47,7 +47,7 @@ class tempTrender {
 		ofstream datafile("relevantdata.dat"); 
 		 
 		 
-		if(its_filePath == "/home/courseuser/MNXB01/2017HT/Project/datasets/uppsala_tm_1722-2013.dat"){
+		if(its_filePath == "/home/magnus/MNXB01/2017HT/Project/datasets/uppsala_tm_1722-2013.dat"){
 			
 			
 			while(getline(file,temp)){
@@ -132,7 +132,7 @@ class tempTrender {
 			urbanDatavector.push_back(0);	
 		}
 		
-		if(its_filePath == "/home/courseuser/MNXB01/2017HT/Project/datasets/uppsala_tm_1722-2013.dat"){
+		if(its_filePath == "/home/magnus/MNXB01/2017HT/Project/datasets/uppsala_tm_1722-2013.dat"){
 			
 			
 			while (getline(f, line)){
@@ -409,7 +409,7 @@ class tempTrender {
 		int old_day = 0, old_year=0, measurementNo = 0, start=0, yyyy, mm, dd, hour, old_month=0; 
 		cout << "start " << start << endl;
 		
-		if(its_filePath == "/home/courseuser/MNXB01/2017HT/Project/datasets/uppsala_tm_1722-2013.dat"){
+		if(its_filePath == "/home/magnus/MNXB01/2017HT/Project/datasets/uppsala_tm_1722-2013.dat"){
 		
 			while(getline(file,line)){
 				
@@ -560,6 +560,6 @@ class tempTrender {
 	private:
 	
 	string its_filePath;
-};
+}; 
 
 #endif
