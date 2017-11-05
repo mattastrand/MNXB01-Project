@@ -6,13 +6,18 @@
 #include <fstream>
 #include <sstream>
 #include <vector>
+
+
 #include <TF1.h> 
 #include <TH1.h> 
 #include <TStyle.h>  
 #include <TMath.h>   
 #include <TCanvas.h> 
+#include <THStack.h>
 #include <TGraph.h>
 #include <TLegend.h>
+#include <TColor.h>
+#include <TAttFill.h>
 #include "keepTrack.cpp"
 
 using namespace std;
@@ -25,7 +30,9 @@ class tempTrender {
 	vector<string> data_from_file; // Will store every meaningful line from the datasets.
 	vector <float> datavector,urbanDatavector,avgOfData, urbanAvgOfData;
 	vector <float> yearTemp, urbanYearTemp, yearNumber;
+
 	vector <float> warmAndCold,theWarmestDays,theColdestDays,theWarmestUrbanDays,theColdestUrbanDays;
+	float meanTempEveryYear;
 	
 	vector<string> read_temperatures(){
 	// Let's read a file and store lines with data in a vector and sort them then store them in a new datafile.
@@ -41,16 +48,16 @@ class tempTrender {
 		ofstream datafile("relevantdata.dat"); 
 		 
 		 
-		if(its_filePath == "/home/magnus/MNXB01/2017HT/Project/datasets/uppsala_tm_1722-2013.dat"){
+		if(its_filePath == "/home/courseuser/MNXB01/2017HT/Project/datasets/uppsala_tm_1722-2013.dat"){
 			
 			
 			while(getline(file,temp)){
 				stringstream data;
 				data << temp;
 				data >> yyyy >> mm >> dd >> temperature >> urbanTemp >> control;
-				if (control == 1){
-					datafile << yyyy << " " << mm << " " << dd << " " << temperature << " " << urbanTemp << endl;
-				}
+				//if (control == 1){
+				datafile << yyyy << " " << mm << " " << dd << " " << temperature << " " << urbanTemp << endl;
+				//}
 			}
 		}		
 		
@@ -126,7 +133,7 @@ class tempTrender {
 			urbanDatavector.push_back(0);	
 		}
 		
-		if(its_filePath == "/home/magnus/MNXB01/2017HT/Project/datasets/uppsala_tm_1722-2013.dat"){
+		if(its_filePath == "/home/courseuser/MNXB01/2017HT/Project/datasets/uppsala_tm_1722-2013.dat"){
 			
 			
 			while (getline(f, line)){
@@ -230,7 +237,8 @@ class tempTrender {
 		
 		float temperature, urbanTemp, avgTemp, urbanAvgTemp, tot_temp = 0, urbanTot_temp = 0;
 		int yyyy, mm, dd, hour, measurementNo = 0, old_year=0;
-		
+		float tot_TempEveryYear = 0;
+		meanTempEveryYear = 0;
 		if(its_filePath == "/home/courseuser/MNXB01/2017HT/Project/datasets/uppsala_tm_1722-2013.dat"){
 			
 			while(getline(datafile,line)){
@@ -304,14 +312,25 @@ class tempTrender {
 		}
 		datafile.close();
 		
+		
+		for (unsigned int i =0; i <yearTemp.size();i++){
+			tot_TempEveryYear += yearTemp.at(i);
+			//cout << tot_TempEveryYear << endl;
+		}
+		meanTempEveryYear = tot_TempEveryYear/yearTemp.size();
+		//cout << meanTempEveryYear << endl;
+		//cout << yearTemp.size() << endl;
+		
+		
 		// Below, the warmest and coldest years are found and info about them is stored in a vector.
 		
 		// These are the variables used for the identification.
 		float warmestYear, coldestYear, warmestTemp, coldestTemp, newTemp;
 		int flag = 0;
 		
-		for (unsigned int i = 0; i < yearTemp.size(); i++){ // Go through all of the yearTemp vector, created above.
-			
+
+		for (unsigned int i = 0; i < yearTemp.size()-1; i++){ // Go through all of the yearTemp vector, created above. Exclude year 2015 as it might have incomplete data.
+
 			newTemp = yearTemp[i]; // Each time we go through the loop, newTemp stores the element of yearTemp corresponding to the current iteration number.
 			
 			if (flag == 1){
@@ -396,7 +415,7 @@ class tempTrender {
 		int old_day = 0, old_year=0, measurementNo = 0, start=0, yyyy, mm, dd, hour, old_month=0; 
 		cout << "start " << start << endl;
 		
-		if(its_filePath == "/home/magnus/MNXB01/2017HT/Project/datasets/uppsala_tm_1722-2013.dat"){
+		if(its_filePath == "/home/courseuser/MNXB01/2017HT/Project/datasets/uppsala_tm_1722-2013.dat"){
 		
 			while(getline(file,line)){
 				
@@ -610,7 +629,7 @@ class tempTrender {
 			avgOfData[j]=(sumOfData[j])/countsOfData[j];
 			urbanAvgOfData[j]=(urbanSumOfData[j])/countsOfData[j];
 			//cout << avgOfData[j] << endl;
-			cout << urbanAvgOfData[j] << endl;		
+			//cout << urbanAvgOfData[j] << endl;		
 		}
 
 		
