@@ -12,6 +12,7 @@ void rootlogon() {
   
   gROOT->ProcessLine(".L tempTrender.cpp+"); //Load the classes that we want to use automatically - Convenient!
   gROOT->ProcessLine(".L project.cpp+"); //The + means to recompile only if it changed since last time
+  gROOT->ProcessLine(".L tempPerDayExtended.cpp+")
   //Now you can type project() to invoke the function defined in project
   //You can also create and invoke functions in a temptrender manually by doing e.g. tempTrender t(pathToFile); t.hotCold();
 }

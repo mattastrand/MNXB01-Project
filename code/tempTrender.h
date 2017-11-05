@@ -6,13 +6,18 @@
 #include <fstream>
 #include <sstream>
 #include <vector>
+
+
 #include <TF1.h> 
 #include <TH1.h> 
 #include <TStyle.h>  
 #include <TMath.h>   
 #include <TCanvas.h> 
+#include <THStack.h>
 #include <TGraph.h>
 #include <TLegend.h>
+#include <TColor.h>
+#include <TAttFill.h>
 #include "keepTrack.cpp"
 
 using namespace std;
@@ -26,6 +31,7 @@ class tempTrender {
 	vector <float> datavector,urbanDatavector,avgOfData, urbanAvgOfData;
 	vector <float> yearTemp, urbanYearTemp, yearNumber;
 	vector <float> warmAndCold;
+	float meanTempEveryYear;
 	
 	vector<string> read_temperatures(){
 	// Let's read a file and store lines with data in a vector and sort them then store them in a new datafile.
@@ -48,9 +54,9 @@ class tempTrender {
 				stringstream data;
 				data << temp;
 				data >> yyyy >> mm >> dd >> temperature >> urbanTemp >> control;
-				if (control == 1){
-					datafile << yyyy << " " << mm << " " << dd << " " << temperature << " " << urbanTemp << endl;
-				}
+				//if (control == 1){
+				datafile << yyyy << " " << mm << " " << dd << " " << temperature << " " << urbanTemp << endl;
+				//}
 			}
 		}		
 		
@@ -230,7 +236,8 @@ class tempTrender {
 		
 		float temperature, urbanTemp, avgTemp, urbanAvgTemp, tot_temp = 0, urbanTot_temp = 0;
 		int yyyy, mm, dd, hour, measurementNo = 0, old_year=0;
-		
+		float tot_TempEveryYear = 0;
+		meanTempEveryYear = 0;
 		if(its_filePath == "/home/courseuser/MNXB01/2017HT/Project/datasets/uppsala_tm_1722-2013.dat"){
 			
 			while(getline(datafile,line)){
@@ -303,6 +310,16 @@ class tempTrender {
 	
 		}
 		datafile.close();
+		
+		
+		for (unsigned int i =0; i <yearTemp.size();i++){
+			tot_TempEveryYear += yearTemp.at(i);
+			//cout << tot_TempEveryYear << endl;
+		}
+		meanTempEveryYear = tot_TempEveryYear/yearTemp.size();
+		//cout << meanTempEveryYear << endl;
+		//cout << yearTemp.size() << endl;
+		
 		
 		// Below, the warmest and coldest years are found and info about them is stored in a vector.
 		
@@ -533,7 +550,7 @@ class tempTrender {
 			avgOfData[j]=(sumOfData[j])/countsOfData[j];
 			urbanAvgOfData[j]=(urbanSumOfData[j])/countsOfData[j];
 			//cout << avgOfData[j] << endl;
-			cout << urbanAvgOfData[j] << endl;		
+			//cout << urbanAvgOfData[j] << endl;		
 		}
 
 		
