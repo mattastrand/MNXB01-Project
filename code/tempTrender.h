@@ -25,6 +25,7 @@ class tempTrender {
 	vector<string> data_from_file; // Will store every meaningful line from the datasets.
 	vector <float> datavector,urbanDatavector,avgOfData, urbanAvgOfData;
 	vector <float> yearTemp, urbanYearTemp, yearNumber;
+	vector <float> warmAndCold;
 	
 	vector<string> read_temperatures(){
 	// Let's read a file and store lines with data in a vector and sort them then store them in a new datafile.
@@ -250,7 +251,7 @@ class tempTrender {
 					avgTemp = tot_temp/measurementNo;
 					tot_temp= temperature;
 					urbanAvgTemp = urbanTot_temp/measurementNo;
-					cout << urbanAvgTemp << endl;
+					//cout << urbanAvgTemp << endl;
 					urbanTot_temp = urbanTemp;
 					measurementNo=1;
 					yearNumber.push_back(old_year);
@@ -302,6 +303,40 @@ class tempTrender {
 	
 		}
 		datafile.close();
+		
+		// Below, the warmest and coldest years are found and info about them is stored in a vector.
+		
+		// These are the variables used for the identification.
+		float warmestYear, coldestYear, warmestTemp, coldestTemp, newTemp;
+		int flag = 0;
+		
+		for (unsigned int i = 0; i < yearTemp.size(); i++){ // Go through all of the yearTemp vector, created above.
+			
+			newTemp = yearTemp[i]; // Each time we go through the loop, newTemp stores the element of yearTemp corresponding to the current iteration number.
+			
+			if (flag == 1){
+				if (warmestTemp < newTemp){ // warmestTemp is updated until no other element in yearTemp exceeds it.
+					warmestTemp = newTemp;
+					warmestYear = yearNumber[i]; // The year corresponding to warmestTemp is also noted
+				}
+				else if (coldestTemp > newTemp){ // Same as above but for coldest temperature and year.
+					coldestTemp = newTemp;
+					coldestYear = yearNumber[i];
+				}
+			}
+			
+			else if (flag == 0){ // warmest- and coldestTemp are assigned with their first value. This will be updated with the above if-statement. 
+				warmestTemp = newTemp;
+				coldestTemp = newTemp;
+				flag = 1; // flag is set to 1 so that this statement is only entered once.
+			}
+			
+		}
+		warmAndCold.push_back(warmestTemp); // Warmest temperature in position [0].
+		warmAndCold.push_back(warmestYear); // Year corrseponding to warmestTemp in position [1].
+		warmAndCold.push_back(coldestTemp); // Coldest temperature in position [2].
+		warmAndCold.push_back(coldestYear); // Year corrseponding to coldestTemp in position [3].
+		
 	}
 	
 	

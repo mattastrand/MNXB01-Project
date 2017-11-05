@@ -12,5 +12,5 @@
 03/11: Added legends to the plots in the previous stable version. (Leo)
 04/11: Added function keep track to properly match the temperature with the day. (Magnus)
 04/11: Changed the header to work for the Uppsala data set, and modified the functions to handle that case. (Leo, Magnus)
-04/11: Added another function that calculates the average temperature per year for every yeae in any dataset. (Leo, Magnus)
- 
+04/11: Added another function (tempEveryYear) that calculates the average temperature per year for every year in any dataset. (Leo, Magnus)
+04/11: Added a for loop to tempEveryYear that finds the warmest and coldest years in a dataset and stores them in a vector. (Mattias)
