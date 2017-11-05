@@ -79,13 +79,19 @@ void plotTempLocation(){
 	
 	string pathVisby ="/home/courseuser/MNXB01/2017HT/Project/datasets/smhi-opendata_Visby.csv";
 	tempTrender Visby(pathVisby);
+<<<<<<< HEAD
 	
 	Visby.read_temperatures();
 	Visby.tempEveryYear();
 	
+=======
+	
+	Visby.read_temperatures();
+	Visby.tempEveryYear();
+>>>>>>> 4c2f17d6456b7939fab16aeaa42ae812e14a864f
 	
 	
-	TCanvas *cb = new TCanvas("cb","cb",600,400);
+	TCanvas *cb = new TCanvas("cb","cb",1200,900);
 	//THStack *hs = new THStack("hs","Stacked 1D histograms");
 	cb->SetGrid();
 	gStyle->SetHistMinimumZero();
@@ -97,9 +103,10 @@ void plotTempLocation(){
 	h1b->SetMinimum(-5);
 	h1b->SetMaximum(15);
 	h1b->SetBinContent(1,Soder.warmAndCold[0]);
-	h1b->GetXaxis()->SetBinLabel(1,"Soderarm");
+	h1b->GetXaxis()->SetBinLabel(1,"Soderarm \n 2008 (red), 1985 (blue)");
 	//h1b->Fill(1,Soder.warmAndCold[1]);
 	h1b->SetBinContent(2,Upp.warmAndCold[0]);
+<<<<<<< HEAD
 	h1b->GetXaxis()->SetBinLabel(2,"Uppsala");
 	//h1b->SetBinContent(3,Lund.warmAndCold[0]);
 	//h1b->GetXaxis()->SetBinLabel(3,"Lund");
@@ -117,12 +124,27 @@ void plotTempLocation(){
 	//h1b->GetXaxis()->SetBinLabel(9,"Karlstad");
 	//h1b->SetBinContent(10,Visby.warmAndCold[0]);
 	//h1b->GetXaxis()->SetBinLabel(10,"Visby");
+=======
+	h1b->GetXaxis()->SetBinLabel(2,"Uppsala \n 1723, 1867");
+	h1b->SetBinContent(3,Lund.warmAndCold[0]);
+	h1b->GetXaxis()->SetBinLabel(3,"Lund \n 1975, 1980");
+	h1b->SetBinContent(4,Lule.warmAndCold[0]);
+	h1b->GetXaxis()->SetBinLabel(4,"Lulea \n 1960, 1985");
+	h1b->SetBinContent(5,Boras.warmAndCold[0]);
+	h1b->GetXaxis()->SetBinLabel(5,"Boras \n 1990, 2010");
+	h1b->SetBinContent(6,Falun.warmAndCold[0]);
+	h1b->GetXaxis()->SetBinLabel(6,"Falun \n 1955, 1985");
+	h1b->SetBinContent(7,Falster.warmAndCold[0]);
+	h1b->GetXaxis()->SetBinLabel(7,"Falsterbo \n 2014, 1979");
+	h1b->SetBinContent(8,Umea.warmAndCold[0]);
+	h1b->GetXaxis()->SetBinLabel(8,"Umea \n 2014, 1985");
+	h1b->SetBinContent(9,Karl.warmAndCold[0]);
+	h1b->GetXaxis()->SetBinLabel(9,"Karlstad \n 1955, 1987");
+	h1b->SetBinContent(10,Visby.warmAndCold[0]);
+	h1b->GetXaxis()->SetBinLabel(10,"Visby \n 1953, 1985");
+>>>>>>> 4c2f17d6456b7939fab16aeaa42ae812e14a864f
 	//hs->Add(h1b);
 	h1b->Draw("b");
-   
-   
-   	
-	leg->AddEntry(h1b, "hey you fuck","L");
 	
 	TH1F *h3b = new TH1F("h3b", "h3b",10,0,10);
 	h3b->SetFillColor(kGreen +1);
@@ -131,6 +153,7 @@ void plotTempLocation(){
 	h3b->SetStats(0);
     h3b->SetBinContent(1,Soder.meanTempEveryYear);	
 	h3b->SetBinContent(2,Upp.meanTempEveryYear);
+<<<<<<< HEAD
 	//h3b->SetBinContent(3,Lund.meanTempEveryYear);
 	//h3b->SetBinContent(4,Lule.meanTempEveryYear);
 	//h3b->SetBinContent(5,Boras.meanTempEveryYear);
@@ -139,6 +162,16 @@ void plotTempLocation(){
 	//h3b->SetBinContent(8,Umea.meanTempEveryYear);
 	//h3b->SetBinContent(9,Karl.meanTempEveryYear);
 	//h3b->SetBinContent(10,Visby.meanTempEveryYear);
+=======
+	h3b->SetBinContent(3,Lund.meanTempEveryYear);
+	h3b->SetBinContent(4,Lule.meanTempEveryYear);
+	h3b->SetBinContent(5,Boras.meanTempEveryYear);
+	h3b->SetBinContent(6,Falun.meanTempEveryYear);
+	h3b->SetBinContent(7,Falster.meanTempEveryYear);
+	h3b->SetBinContent(8,Umea.meanTempEveryYear);
+	h3b->SetBinContent(9,Karl.meanTempEveryYear);
+	h3b->SetBinContent(10,Visby.meanTempEveryYear);
+>>>>>>> 4c2f17d6456b7939fab16aeaa42ae812e14a864f
 	//hs->Add(h3b);
 	h3b->Draw("b same");
    
@@ -149,6 +182,7 @@ void plotTempLocation(){
 	h2b->SetStats(0);
 	h2b->SetBinContent(1,Soder.warmAndCold[2]);	
 	h2b->SetBinContent(2,Upp.warmAndCold[2]);
+<<<<<<< HEAD
 	//h2b->SetBinContent(3,Lund.warmAndCold[2]);
 	//h2b->SetBinContent(4,Lule.warmAndCold[2]);
 	//h2b->SetBinContent(5,Boras.warmAndCold[2]);
@@ -157,8 +191,22 @@ void plotTempLocation(){
 	//h2b->SetBinContent(8,Umea.warmAndCold[2]);
 	//h2b->SetBinContent(9,Karl.warmAndCold[2]);
 	//h2b->SetBinContent(10,Visby.warmAndCold[2]);
+=======
+	h2b->SetBinContent(3,Lund.warmAndCold[2]);
+	h2b->SetBinContent(4,Lule.warmAndCold[2]);
+	h2b->SetBinContent(5,Boras.warmAndCold[2]);
+	h2b->SetBinContent(6,Falun.warmAndCold[2]);
+	h2b->SetBinContent(7,Falster.warmAndCold[2]);
+	h2b->SetBinContent(8,Umea.warmAndCold[2]);
+	h2b->SetBinContent(9,Karl.warmAndCold[2]);
+	h2b->SetBinContent(10,Visby.warmAndCold[2]);
+>>>>>>> 4c2f17d6456b7939fab16aeaa42ae812e14a864f
 	//hs->Add(h2b);
 	h2b->Draw("b same");
+   	
+	leg->AddEntry(h1b, "Warmest year", "F");
+	leg->AddEntry(h2b, "Coldest year", "F");
+	leg->AddEntry(h3b, "Mean temperature using all data", "F");
 	
 	//hs->Draw("nostackb");
 	//hs->GetXaxis()->SetNdivisions(-10);
