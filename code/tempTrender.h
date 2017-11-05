@@ -47,7 +47,7 @@ class tempTrender {
 		ofstream datafile("relevantdata.dat"); 
 		 
 		 
-		if(its_filePath == "/home/magnus/MNXB01/2017HT/Project/datasets/uppsala_tm_1722-2013.dat"){
+		if(its_filePath == "/home/courseuser/MNXB01/2017HT/Project/datasets/uppsala_tm_1722-2013.dat"){
 			
 			
 			while(getline(file,temp)){
@@ -132,7 +132,7 @@ class tempTrender {
 			urbanDatavector.push_back(0);	
 		}
 		
-		if(its_filePath == "/home/magnus/MNXB01/2017HT/Project/datasets/uppsala_tm_1722-2013.dat"){
+		if(its_filePath == "/home/courseuser/MNXB01/2017HT/Project/datasets/uppsala_tm_1722-2013.dat"){
 			
 			
 			while (getline(f, line)){
@@ -327,7 +327,7 @@ class tempTrender {
 		float warmestYear, coldestYear, warmestTemp, coldestTemp, newTemp;
 		int flag = 0;
 		
-		for (unsigned int i = 0; i < yearTemp.size(); i++){ // Go through all of the yearTemp vector, created above.
+		for (unsigned int i = 0; i < yearTemp.size() -1; i++){ // Go through all of the yearTemp vector, created above.
 			
 			newTemp = yearTemp[i]; // Each time we go through the loop, newTemp stores the element of yearTemp corresponding to the current iteration number.
 			
@@ -409,7 +409,7 @@ class tempTrender {
 		int old_day = 0, old_year=0, measurementNo = 0, start=0, yyyy, mm, dd, hour, old_month=0; 
 		cout << "start " << start << endl;
 		
-		if(its_filePath == "/home/magnus/MNXB01/2017HT/Project/datasets/uppsala_tm_1722-2013.dat"){
+		if(its_filePath == "/home/courseuser/MNXB01/2017HT/Project/datasets/uppsala_tm_1722-2013.dat"){
 		
 			while(getline(file,line)){
 				

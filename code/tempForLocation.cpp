@@ -21,67 +21,68 @@ void plotTempLocation(){
 	Soder.read_temperatures();
 	Soder.tempEveryYear();
 	
-	//string pathUpp = "/home/courseuser/MNXB01/2017HT/Project/datasets/uppsala_tm_1722-2013.dat";
-	//tempTrender Upp(pathUpp);
+	string pathUpp = "/home/courseuser/MNXB01/2017HT/Project/datasets/uppsala_tm_1722-2013.dat";
+	tempTrender Upp(pathUpp);
 	
-	//Upp.read_temperatures();
-	//Upp.tempEveryYear();
+	Upp.read_temperatures();
+	Upp.tempEveryYear();
 	
 	
-	//string pathLund = "/home/courseuser/MNXB01/2017HT/Project/datasets/smhi-opendata_Lund.csv";
-	//tempTrender Lund(pathLund);
+	string pathLund = "/home/courseuser/MNXB01/2017HT/Project/datasets/smhi-opendata_Lund.csv";
+	tempTrender Lund(pathLund);
 
-	//Lund.read_temperatures();
-	//Lund.tempEveryYear();
+	Lund.read_temperatures();
+	Lund.tempEveryYear();
 	
 	
-	//string pathLule = "/home/courseuser/MNXB01/2017HT/Project/datasets/smhi-opendata_Lulea.csv";
-	//tempTrender Lule(pathLule);
+	string pathLule = "/home/courseuser/MNXB01/2017HT/Project/datasets/smhi-opendata_Lulea.csv";
+	tempTrender Lule(pathLule);
 	
-	//Lule.read_temperatures();
-	//Lule.tempEveryYear();
+	Lule.read_temperatures();
+	Lule.tempEveryYear();
 
 	
-	//string pathBoras = "/home/courseuser/MNXB01/2017HT/Project/datasets/smhi-opendata_Boras.csv";
-	//tempTrender Boras(pathBoras);
+	string pathBoras = "/home/courseuser/MNXB01/2017HT/Project/datasets/smhi-opendata_Boras.csv";
+	tempTrender Boras(pathBoras);
 	
-	//Boras.read_temperatures();
-	//Boras.tempEveryYear();
-	
-	
-	//string pathFalun = "/home/courseuser/MNXB01/2017HT/Project/datasets/smhi-opendata_Falun.csv";
-	//tempTrender Falun(pathFalun);
-	
-	//Falun.read_temperatures();
-	//Falun.tempEveryYear();
+	Boras.read_temperatures();
+	Boras.tempEveryYear();
 	
 	
-	//string pathFalster = "/home/courseuser/MNXB01/2017HT/Project/datasets/smhi-opendata_Falsterbo.csv";
-	//tempTrender Falster(pathFalster);
+	string pathFalun = "/home/courseuser/MNXB01/2017HT/Project/datasets/smhi-opendata_Falun.csv";
+	tempTrender Falun(pathFalun);
 	
-	//Falster.read_temperatures();
-	//Falster.tempEveryYear();
-	
-	
-	//string pathUmea = "/home/courseuser/MNXB01/2017HT/Project/datasets/smhi-opendata_Umea.csv";
-	//tempTrender Umea(pathUmea);
-	
-	//Umea.read_temperatures();
-	//Umea.tempEveryYear();
+	Falun.read_temperatures();
+	Falun.tempEveryYear();
 	
 	
-	//string pathKarl = "/home/courseuser/MNXB01/2017HT/Project/datasets/smhi-openda_Karlstad.csv";
-	//tempTrender Karl(pathKarl);
+	string pathFalster = "/home/courseuser/MNXB01/2017HT/Project/datasets/smhi-opendata_Falsterbo.csv";
+	tempTrender Falster(pathFalster);
 	
-	//Karl.read_temperatures();
-	//Karl.tempEveryYear();
+	Falster.read_temperatures();
+	Falster.tempEveryYear();
 	
 	
-	//string pathVisby ="/home/courseuser/MNXB01/2017HT/Project/datasets/smhi-opendata_Visby.csv";
-	//tempTrender Visby(pathVisby);
+	string pathUmea = "/home/courseuser/MNXB01/2017HT/Project/datasets/smhi-opendata_Umea.csv";
+	tempTrender Umea(pathUmea);
 	
-	//Visby.read_temperatures();
-	//Visby.tempEveryYear();
+	Umea.read_temperatures();
+	Umea.tempEveryYear();
+	
+	
+	string pathKarl = "/home/courseuser/MNXB01/2017HT/Project/datasets/smhi-openda_Karlstad.csv";
+	tempTrender Karl(pathKarl);
+	
+	Karl.read_temperatures();
+	Karl.tempEveryYear();
+	
+	
+	string pathVisby ="/home/courseuser/MNXB01/2017HT/Project/datasets/smhi-opendata_Visby.csv";
+	tempTrender Visby(pathVisby);
+	
+	Visby.read_temperatures();
+	Visby.tempEveryYear();
+	
 	
 	
 	TCanvas *cb = new TCanvas("cb","cb",600,400);
@@ -98,8 +99,8 @@ void plotTempLocation(){
 	h1b->SetBinContent(1,Soder.warmAndCold[0]);
 	h1b->GetXaxis()->SetBinLabel(1,"Soderarm");
 	//h1b->Fill(1,Soder.warmAndCold[1]);
-	//h1b->SetBinContent(2,Upp.warmAndCold[0]);
-	//h1b->GetXaxis()->SetBinLabel(2,"Uppsala");
+	h1b->SetBinContent(2,Upp.warmAndCold[0]);
+	h1b->GetXaxis()->SetBinLabel(2,"Uppsala");
 	//h1b->SetBinContent(3,Lund.warmAndCold[0]);
 	//h1b->GetXaxis()->SetBinLabel(3,"Lund");
 	//h1b->SetBinContent(4,Lule.warmAndCold[0]);
@@ -129,7 +130,7 @@ void plotTempLocation(){
 	h3b->SetBarOffset(0.4);
 	h3b->SetStats(0);
     h3b->SetBinContent(1,Soder.meanTempEveryYear);	
-	//h3b->SetBinContent(2,Upp.meanTempEveryYear);
+	h3b->SetBinContent(2,Upp.meanTempEveryYear);
 	//h3b->SetBinContent(3,Lund.meanTempEveryYear);
 	//h3b->SetBinContent(4,Lule.meanTempEveryYear);
 	//h3b->SetBinContent(5,Boras.meanTempEveryYear);
@@ -147,7 +148,7 @@ void plotTempLocation(){
 	h2b->SetBarOffset(0.7);
 	h2b->SetStats(0);
 	h2b->SetBinContent(1,Soder.warmAndCold[2]);	
-	//h2b->SetBinContent(2,Upp.warmAndCold[2]);
+	h2b->SetBinContent(2,Upp.warmAndCold[2]);
 	//h2b->SetBinContent(3,Lund.warmAndCold[2]);
 	//h2b->SetBinContent(4,Lule.warmAndCold[2]);
 	//h2b->SetBinContent(5,Boras.warmAndCold[2]);
