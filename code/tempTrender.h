@@ -25,7 +25,7 @@ class tempTrender {
 	vector<string> data_from_file; // Will store every meaningful line from the datasets.
 	vector <float> datavector,urbanDatavector,avgOfData, urbanAvgOfData;
 	vector <float> yearTemp, urbanYearTemp, yearNumber;
-	vector <float> warmAndCold;
+	vector <float> warmAndCold,theWarmestDays,theColdestDays,theWarmestUrbanDays,theColdestUrbanDays;
 	
 	vector<string> read_temperatures(){
 	// Let's read a file and store lines with data in a vector and sort them then store them in a new datafile.
@@ -381,7 +381,11 @@ class tempTrender {
 		
 		for(int k=0; k<366; k++){
 			avgOfData.push_back(0);	
-			urbanAvgOfData.push_back(0);		
+			urbanAvgOfData.push_back(0);
+			theWarmestDays.push_back(-200);
+			theColdestDays.push_back(200);
+			theWarmestUrbanDays.push_back(-200);
+			theColdestUrbanDays.push_back(200);		
 		}
 		
 		ifstream file("relevantdata.dat");
@@ -414,6 +418,30 @@ class tempTrender {
 					
 					mean_temp=(tot_temp)/measurementNo;
 					urbanMean_temp = (urbanTot_temp)/measurementNo;
+					
+					if(mean_temp>theWarmestDays[::keepTrack(old_year,old_month,old_day)-1]){
+						
+						theWarmestDays[::keepTrack(old_year,old_month,old_day)-1]=mean_temp;
+												
+					}
+					
+					else if(mean_temp<theColdestDays[::keepTrack(old_year,old_month,old_day)-1)]){
+						
+						theColdestDays[::keepTrack(old_year,old_month,old_day)-1]=mean_temp;
+						
+					}
+					
+					if(urbanMean_temp>theWarmestUrbanDay[::keepTrack(old_year,old_month,old_day)-1)]){
+						
+						theWarmestUrbanDays[::keepTrack(old_year,old_month,old_day)-1]=urbanMean_temp;
+						
+					}
+					
+					else if(urbanMean_temp<theColdestUrbanDays[::keepTrack(old_year,old_month,old_day)-1]){
+						
+						theColdestUrbanDays[::keepTrack(old_year,old_month,old_day)-1]=urbanMean_temp;
+						
+					}
 					sumOfData[::keepTrack(old_year,old_month,old_day)-1]+=mean_temp;
 					urbanSumOfData[::keepTrack(old_year,old_month,old_day)-1]+=urbanMean_temp;
 					countsOfData[::keepTrack(old_year,old_month, old_day)-1]+=1;	
@@ -446,6 +474,30 @@ class tempTrender {
 					
 					mean_temp=(tot_temp)/measurementNo;
 					urbanMean_temp = (urbanTot_temp)/measurementNo;
+					
+					if(mean_temp>theWarmestDays[::keepTrack(old_year,old_month,old_day)-1]){
+						
+						theWarmestDays[::keepTrack(old_year,old_month,old_day)-1]=mean_temp;
+												
+					}
+					
+					else if(mean_temp<theColdestDays[::keepTrack(old_year,old_month,old_day)-1)]){
+						
+						theColdestDays[::keepTrack(old_year,old_month,old_day)-1]=mean_temp;
+						
+					}
+					
+					if(urbanMean_temp>theWarmestUrbanDay[::keepTrack(old_year,old_month,old_day)-1)]){
+						
+						theWarmestUrbanDays[::keepTrack(old_year,old_month,old_day)-1]=urbanMean_temp;
+						
+					}
+					
+					else if(urbanMean_temp<theColdestUrbanDays[::keepTrack(old_year,old_month,old_day)-1]){
+						
+						theColdestUrbanDays[::keepTrack(old_year,old_month,old_day)-1]=urbanMean_temp;
+						
+					}
 					sumOfData[::keepTrack(old_year,old_month, old_day)-1]+=mean_temp;
 					urbanSumOfData[::keepTrack(old_year,old_month,old_day)-1]+=urbanMean_temp;
 					countsOfData[::keepTrack(old_year,old_month,old_day)-1]+=1;
@@ -485,6 +537,19 @@ class tempTrender {
 					
 					
 					mean_temp=(tot_temp)/measurementNo;
+					
+					if(mean_temp>theWarmestDays[::keepTrack(old_year,old_month,old_day)-1]){
+						
+						theWarmestDays[::keepTrack(old_year,old_month,old_day)-1]=mean_temp;
+												
+					}
+					
+					else if(mean_temp<theColdestDays[::keepTrack(old_year,old_month,old_day)-1)]){
+						
+						theColdestDays[::keepTrack(old_year,old_month,old_day)-1]=mean_temp;
+						
+					}
+					
 					sumOfData[::keepTrack(old_year,old_month,old_day)-1]+=mean_temp;
 					countsOfData[::keepTrack(old_year,old_month, old_day)-1]+=1;	
 					
@@ -513,6 +578,18 @@ class tempTrender {
 				else{
 					
 					mean_temp=(tot_temp)/measurementNo;
+					
+					if(mean_temp>theWarmestDays[::keepTrack(old_year,old_month,old_day)-1]){
+						
+						theWarmestDays[::keepTrack(old_year,old_month,old_day)-1]=mean_temp;
+												
+					}
+					
+					else if(mean_temp<theColdestDays[::keepTrack(old_year,old_month,old_day)-1)]){
+						
+						theColdestDays[::keepTrack(old_year,old_month,old_day)-1]=mean_temp;
+						
+					}
 					sumOfData[::keepTrack(old_year,old_month, old_day)-1]+=mean_temp;
 					countsOfData[::keepTrack(old_year,old_month,old_day)-1]+=1;
 					
