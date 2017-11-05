@@ -24,6 +24,7 @@ class tempTrender {
 	
 	vector<string> data_from_file; // Will store every meaningful line from the datasets.
 	vector <float> datavector,urbanDatavector,avgOfData, urbanAvgOfData;
+	vector <float> yearTemp, urbanYearTemp, yearNumber;
 	
 	vector<string> read_temperatures(){
 	// Let's read a file and store lines with data in a vector and sort them then store them in a new datafile.
@@ -215,6 +216,95 @@ class tempTrender {
 	
 	//void hotCold(); //Make a histogram of the hottest and coldest day of the year
 	//void tempPerYear(int yearToExtrapolate); //Make a histogram of average temperature per year, then fit and extrapolate to the given year
+	
+	
+	
+	
+	
+	void tempEveryYear(){
+		
+		
+		ifstream datafile("relevantdata.dat");
+		string line;
+		
+		float temperature, urbanTemp, avgTemp, urbanAvgTemp, tot_temp = 0, urbanTot_temp = 0;
+		int yyyy, mm, dd, hour, measurementNo = 0, old_year=0;
+		
+		if(its_filePath == "/home/courseuser/MNXB01/2017HT/Project/datasets/uppsala_tm_1722-2013.dat"){
+			
+			while(getline(datafile,line)){
+				
+				stringstream data;
+				data << line;
+				data >> yyyy >> mm >> dd >> temperature >> urbanTemp;
+			
+				if((yyyy==old_year) || (old_year ==0)){
+					tot_temp += temperature; 
+					urbanTot_temp += urbanTemp;
+					measurementNo += 1;
+					old_year = yyyy;
+				}
+				
+				
+				else {
+					avgTemp = tot_temp/measurementNo;
+					tot_temp= temperature;
+					urbanAvgTemp = urbanTot_temp/measurementNo;
+					cout << urbanAvgTemp << endl;
+					urbanTot_temp = urbanTemp;
+					measurementNo=1;
+					yearNumber.push_back(old_year);
+					old_year = yyyy;
+					yearTemp.push_back(avgTemp);
+					urbanYearTemp.push_back(urbanAvgTemp);
+				}
+			}
+			avgTemp = tot_temp/measurementNo;
+			urbanAvgTemp = urbanTot_temp/measurementNo;
+			yearNumber.push_back(yyyy);
+			yearTemp.push_back(avgTemp);
+			urbanYearTemp.push_back(urbanAvgTemp);
+		}
+		
+		else{
+			
+			
+			while(getline(datafile,line)){
+				
+				stringstream data;
+				data << line;
+				data >> yyyy >> mm >> dd >> hour >> temperature;
+			
+				if((yyyy==old_year) || (old_year ==0)){
+					tot_temp += temperature; 
+					measurementNo += 1;
+					old_year = yyyy;
+				}
+				else {
+					avgTemp = tot_temp/measurementNo;
+					tot_temp= temperature;
+					measurementNo=1;
+					yearNumber.push_back(old_year);
+					old_year = yyyy;
+					yearTemp.push_back(avgTemp);
+				}
+			}
+			avgTemp = tot_temp/measurementNo;
+			yearNumber.push_back(yyyy);
+			yearTemp.push_back(avgTemp);
+			//cout <<old_year <<" " << tot_temp << endl;
+			//for (unsigned int i= 0; i<yearTemp.size(); i++){
+			//	cout << yearTemp.at(i) << endl;
+			//	cout << yearNumber.at(i) << endl;
+			//}
+			//cout << yearTemp.size() << endl;
+			//cout << yearNumber.size() << endl;
+	
+		}
+		datafile.close();
+	}
+	
+	
 	
 	
 	
@@ -418,6 +508,6 @@ class tempTrender {
 	private:
 	
 	string its_filePath;
-};
+}; 
 
 #endif
