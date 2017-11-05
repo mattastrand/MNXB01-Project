@@ -65,8 +65,9 @@ void testFunc(){
 	
 	
 	
-	//string pathUpp = "/home/courseuser/MNXB01/2017HT/Project/datasets/uppsala_tm_1722-2013.dat";
-	//tempTrender Upp(pathUpp);
+	string pathUpp = "/home/magnus/MNXB01/2017HT/Project/datasets/uppsala_tm_1722-2013.dat";
+	tempTrender Upp(pathUpp);
+
 	
 	//Upp.read_temperatures();
 	
@@ -191,6 +192,26 @@ void testFunc(){
 }
 
 int main(){
+
+	string pathToFile = "/home/magnus/MNXB01/2017HT/Project/datasets/uppsala_tm_1722-2013.dat";
+	tempTrender Upp(pathToFile);
+	Upp.read_temperatures();
+	Upp.tempPerDayExtended();
+	//Upp.tempPerDay(1973);
+	/*for (unsigned int i = 0; i< Upp.datavector.size();i++){
+		cout << Upp.datavector.at(i) << endl;
+		cout << Upp.urbanDatavector.at(i) << endl;
+	}*/
+	/*string pathLule = "/home/courseuser/MNXB01/2017HT/Project/datasets/smhi-opendata_Lulea.csv";
+	tempTrender Lule(pathLule);
+	Lule.read_temperatures();
+	Lule.tempPerDay(1973);
+	for (unsigned int i = 0 ; i< Lule.datavector.size(); i++){
+		cout << Lule.datavector.at(i) << endl;
+	}*/
+	/*
+	string pathToFile = "/home/courseuser/MNXB01/2017HT/Project/datasets/smhi-opendata_Lund.csv"; //Put the path to your data file here
+
 //	string pathToFile = "/home/courseuser/MNXB01/2017HT/Project/datasets/uppsala_tm_1722-2013.dat";
 //	tempTrender Upp(pathToFile);
 //	Upp.read_temperatures();
@@ -205,6 +226,7 @@ int main(){
 //		cout << Upp.datavector.at(i) << endl;
 //		cout << Upp.urbanDatavector.at(i) << endl;
 //	}
+
 
 //	string pathLule = "/home/courseuser/MNXB01/2017HT/Project/datasets/smhi-opendata_Lulea.csv";
 //	tempTrender Lule(pathLule);
