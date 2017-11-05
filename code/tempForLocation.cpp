@@ -100,7 +100,6 @@ void plotTempLocation(){
 	h1b->GetXaxis()->SetBinLabel(1,"Soderarm \n 2008 (red), 1985 (blue)");
 	//h1b->Fill(1,Soder.warmAndCold[1]);
 	h1b->SetBinContent(2,Upp.warmAndCold[0]);
-
 	h1b->GetXaxis()->SetBinLabel(2,"Uppsala \n 1723, 1867");
 	h1b->SetBinContent(3,Lund.warmAndCold[0]);
 	h1b->GetXaxis()->SetBinLabel(3,"Lund \n 1975, 1980");
@@ -129,7 +128,6 @@ void plotTempLocation(){
 	h3b->SetStats(0);
     h3b->SetBinContent(1,Soder.meanTempEveryYear);	
 	h3b->SetBinContent(2,Upp.meanTempEveryYear);
-
 	h3b->SetBinContent(3,Lund.meanTempEveryYear);
 	h3b->SetBinContent(4,Lule.meanTempEveryYear);
 	h3b->SetBinContent(5,Boras.meanTempEveryYear);
@@ -149,7 +147,6 @@ void plotTempLocation(){
 	h2b->SetStats(0);
 	h2b->SetBinContent(1,Soder.warmAndCold[2]);	
 	h2b->SetBinContent(2,Upp.warmAndCold[2]);
-
 	h2b->SetBinContent(3,Lund.warmAndCold[2]);
 	h2b->SetBinContent(4,Lule.warmAndCold[2]);
 	h2b->SetBinContent(5,Boras.warmAndCold[2]);
