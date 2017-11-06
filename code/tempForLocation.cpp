@@ -82,6 +82,19 @@ void plotTempLocation(){
 
 	Visby.read_temperatures();
 	Visby.tempEveryYear();
+	
+	
+//	Code to obtain the warmest and coldest years for each location:
+//	cout << "Soder: " << Soder.warmAndCold[1] << " " << Soder.warmAndCold[3] << endl;
+//	cout << "Upp: " << Upp.warmAndCold[1] << " " << Upp.warmAndCold[3] << endl;
+//	cout << "Lund: " << Lund.warmAndCold[1] << " " << Lund.warmAndCold[3] << endl;
+//	cout << "Lule: " << Lule.warmAndCold[1] << " " << Lule.warmAndCold[3] << endl;
+//	cout << "Boras: " << Boras.warmAndCold[1] << " " << Boras.warmAndCold[3] << endl;
+//	cout << "Falun: " << Falun.warmAndCold[1] << " " << Falun.warmAndCold[3] << endl;
+//	cout << "Falster: " << Falster.warmAndCold[1] << " " << Falster.warmAndCold[3] << endl;
+//	cout << "Umea: " << Umea.warmAndCold[1] << " " << Umea.warmAndCold[3] << endl;
+//	cout << "Karl: " << Karl.warmAndCold[1] << " " << Karl.warmAndCold[3] << endl;
+//	cout << "Visby: " << Visby.warmAndCold[1] << " " << Visby.warmAndCold[3] << endl;
 
 	
 	
@@ -89,7 +102,7 @@ void plotTempLocation(){
 	//THStack *hs = new THStack("hs","Stacked 1D histograms");
 	cb->SetGrid();
 	gStyle->SetHistMinimumZero();
-	TH1F *h1b = new TH1F("h1b","Option B example",10,0,10);
+	TH1F *h1b = new TH1F("h1b","Option B example; ; Temperature (#circ C)",10,0,10);
 	h1b->SetFillColor(kRed);
 	h1b->SetBarWidth(0.2);
 	h1b->SetBarOffset(0.1);
@@ -97,26 +110,26 @@ void plotTempLocation(){
 	h1b->SetMinimum(-5);
 	h1b->SetMaximum(15);
 	h1b->SetBinContent(1,Soder.warmAndCold[0]);
-	h1b->GetXaxis()->SetBinLabel(1,"Soderarm \n 2008 (red), 1985 (blue)");
+	h1b->GetXaxis()->SetBinLabel(1,"Soderarm 2008 (red), 1985 (blue)"); // 2008 (red), 1985 (blue) including Y lines.
 	//h1b->Fill(1,Soder.warmAndCold[1]);
 	h1b->SetBinContent(2,Upp.warmAndCold[0]);
-	h1b->GetXaxis()->SetBinLabel(2,"Uppsala \n 1723, 1867");
+	h1b->GetXaxis()->SetBinLabel(2,"Uppsala 1723, 1867"); // 1723, 1867 including Y lines.
 	h1b->SetBinContent(3,Lund.warmAndCold[0]);
-	h1b->GetXaxis()->SetBinLabel(3,"Lund \n 1975, 1980");
+	h1b->GetXaxis()->SetBinLabel(3,"Lund 1975, 1980"); // 1975, 1980 including Y lines.
 	h1b->SetBinContent(4,Lule.warmAndCold[0]);
-	h1b->GetXaxis()->SetBinLabel(4,"Lulea \n 1960, 1985");
+	h1b->GetXaxis()->SetBinLabel(4,"Lulea 1960, 1985"); // 1953, 1985 including Y lines.
 	h1b->SetBinContent(5,Boras.warmAndCold[0]);
-	h1b->GetXaxis()->SetBinLabel(5,"Boras \n 1990, 2010");
+	h1b->GetXaxis()->SetBinLabel(5,"Boras 1990, 2010"); // 1990, 2010 including Y lines.
 	h1b->SetBinContent(6,Falun.warmAndCold[0]);
-	h1b->GetXaxis()->SetBinLabel(6,"Falun \n 1955, 1985");
+	h1b->GetXaxis()->SetBinLabel(6,"Falun 1955, 1985"); // 1955, 1985 including Y lines.
 	h1b->SetBinContent(7,Falster.warmAndCold[0]);
-	h1b->GetXaxis()->SetBinLabel(7,"Falsterbo \n 2014, 1979");
+	h1b->GetXaxis()->SetBinLabel(7,"Falsterbo 2014, 1979"); // 2014, 1979 including Y lines.
 	h1b->SetBinContent(8,Umea.warmAndCold[0]);
-	h1b->GetXaxis()->SetBinLabel(8,"Umea \n 2014, 1985");
+	h1b->GetXaxis()->SetBinLabel(8,"Umea 2014, 1985"); // 2014, 1985 including Y lines.
 	h1b->SetBinContent(9,Karl.warmAndCold[0]);
-	h1b->GetXaxis()->SetBinLabel(9,"Karlstad \n 1955, 1987");
+	h1b->GetXaxis()->SetBinLabel(9,"Karlstad 1955, 1987"); // 1955, 1985 including Y lines.
 	h1b->SetBinContent(10,Visby.warmAndCold[0]);
-	h1b->GetXaxis()->SetBinLabel(10,"Visby \n 1953, 1985");
+	h1b->GetXaxis()->SetBinLabel(10,"Visby 1953, 1985"); // 1953, 1985 including Y lines.
 
 	//hs->Add(h1b);
 	h1b->Draw("b");

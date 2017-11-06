@@ -17,6 +17,7 @@
 #include <TGraph.h>
 #include <TLegend.h>
 #include <TColor.h>
+#include <TLatex.h>
 #include <TAttFill.h>
 #include "keepTrack.cpp"
 

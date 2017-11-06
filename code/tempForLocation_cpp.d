@@ -61,6 +61,8 @@
 ./tempForLocation_cpp.so: /usr/include/root/TGraph.h
 ./tempForLocation_cpp.so: /usr/include/root/TLegend.h
 ./tempForLocation_cpp.so: /usr/include/root/TPave.h /usr/include/root/TBox.h
-./tempForLocation_cpp.so: /usr/include/root/TColor.h keepTrack.cpp
+./tempForLocation_cpp.so: /usr/include/root/TColor.h
+./tempForLocation_cpp.so: /usr/include/root/TLatex.h
+./tempForLocation_cpp.so: /usr/include/root/TText.h keepTrack.cpp
 ./tempForLocation_cpp.so: /usr/include/root/cintdictversion.h /usr/include/root/RVersion.h
 tempForLocation_cpp__ROOTBUILDVERSION= 5.34/30

@@ -196,7 +196,7 @@ int main(){
 	Upp.tempPerDayExtended();
 	
 	
-	TH1D* UppHist = new TH1D("Upp", "Uppsala; Year; Temperature",
+	TH1D* UppHist = new TH1D("Upp", "Uppsala; Year; Temperature (#circ C)",
 			Upp.avgOfData.size()-1, 0, Upp.avgOfData.size());
 	
 	for (unsigned int i = 0; i< Upp.avgOfData.size(); i++){
@@ -204,14 +204,14 @@ int main(){
 	}
 	
 	
-	TH1D* UppWarmHist = new TH1D("Upp", "Uppsala; Year; Temperature",
+	TH1D* UppWarmHist = new TH1D("Upp", "Uppsala; Year; Temperature (#circ C)",
 			Upp.avgOfData.size()-1, 0, Upp.avgOfData.size());
 	
 	for (unsigned int i = 0; i< Upp.avgOfData.size(); i++){
 		UppWarmHist->SetBinContent(i,Upp.theWarmestDays.at(i));
 	}
 	
-	TH1D* UppColdHist = new TH1D("Upp", "Uppsala; Year; Temperature",
+	TH1D* UppColdHist = new TH1D("Upp", "Uppsala; Year; Temperature (#circ C)",
 			Upp.avgOfData.size()-1, 0, Upp.avgOfData.size());
 	
 	for (unsigned int i = 0; i< Upp.avgOfData.size(); i++){
@@ -220,12 +220,12 @@ int main(){
 	
 
 	
-	UppHist->SetLineColor(kMagenta);
+	UppHist->SetLineColor(kGreen +1);
 	UppHist->SetMinimum(-35);
 	UppHist->SetMaximum(30),
 	UppHist->Draw();
-	UppColdHist->SetLineColor(kMagenta);
-	UppWarmHist->SetLineColor(kMagenta);
+	UppColdHist->SetLineColor(kBlue);
+	UppWarmHist->SetLineColor(kRed);
 	UppColdHist->Draw("SAME");
 	UppWarmHist->Draw("SAME");
 }

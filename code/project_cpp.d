@@ -38,6 +38,7 @@
 ./project_cpp.so: /usr/include/root/TCanvasImp.h /usr/include/root/THStack.h
 ./project_cpp.so: /usr/include/root/TGraph.h /usr/include/root/TLegend.h
 ./project_cpp.so: /usr/include/root/TPave.h /usr/include/root/TBox.h
-./project_cpp.so: /usr/include/root/TColor.h keepTrack.cpp
+./project_cpp.so: /usr/include/root/TColor.h /usr/include/root/TLatex.h
+./project_cpp.so: /usr/include/root/TText.h keepTrack.cpp
 ./project_cpp.so: /usr/include/root/cintdictversion.h /usr/include/root/RVersion.h
 project_cpp__ROOTBUILDVERSION= 5.34/30
