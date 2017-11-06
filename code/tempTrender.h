@@ -392,7 +392,7 @@ class tempTrender {
 		//The vectors below are filled with the total temperature of any given day
 		//and the number of measurements on that day appears in the entire dataset.
 		//The day is counted as the number of days since the start of the year.
-		//This means that February 29th appears in the 60th position every four years,
+		//This means that Febru<<ary 29th appears in the 60th position every four years,
 		//and every other day is pushed back, so that the last entry is December 31st every four years. 
 
 		vector <float> sumOfData(366,0), countsOfData(366,0), urbanSumOfData(366,0);
