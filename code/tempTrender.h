@@ -444,13 +444,13 @@ class tempTrender {
 												
 					}
 					
-					else if(mean_temp<theColdestDays[::keepTrack(old_year,old_month,old_day)-1)]){
+					else if(mean_temp<theColdestDays[::keepTrack(old_year,old_month,old_day)-1]){
 						
 						theColdestDays[::keepTrack(old_year,old_month,old_day)-1]=mean_temp;
 						
 					}
 					
-					if(urbanMean_temp>theWarmestUrbanDay[::keepTrack(old_year,old_month,old_day)-1)]){
+					if(urbanMean_temp>theWarmestUrbanDays[::keepTrack(old_year,old_month,old_day)-1]){
 						
 						theWarmestUrbanDays[::keepTrack(old_year,old_month,old_day)-1]=urbanMean_temp;
 						
@@ -500,13 +500,13 @@ class tempTrender {
 												
 					}
 					
-					else if(mean_temp<theColdestDays[::keepTrack(old_year,old_month,old_day)-1)]){
+					else if(mean_temp<theColdestDays[::keepTrack(old_year,old_month,old_day)-1]){
 						
 						theColdestDays[::keepTrack(old_year,old_month,old_day)-1]=mean_temp;
 						
 					}
 					
-					if(urbanMean_temp>theWarmestUrbanDay[::keepTrack(old_year,old_month,old_day)-1)]){
+					if(urbanMean_temp>theWarmestUrbanDays[::keepTrack(old_year,old_month,old_day)-1]){
 						
 						theWarmestUrbanDays[::keepTrack(old_year,old_month,old_day)-1]=urbanMean_temp;
 						
@@ -563,7 +563,7 @@ class tempTrender {
 												
 					}
 					
-					else if(mean_temp<theColdestDays[::keepTrack(old_year,old_month,old_day)-1)]){
+					else if(mean_temp<theColdestDays[::keepTrack(old_year,old_month,old_day)-1]){
 						
 						theColdestDays[::keepTrack(old_year,old_month,old_day)-1]=mean_temp;
 						
@@ -604,7 +604,7 @@ class tempTrender {
 												
 					}
 					
-					else if(mean_temp<theColdestDays[::keepTrack(old_year,old_month,old_day)-1)]){
+					else if(mean_temp<theColdestDays[::keepTrack(old_year,old_month,old_day)-1]){
 						
 						theColdestDays[::keepTrack(old_year,old_month,old_day)-1]=mean_temp;
 						
@@ -630,6 +630,14 @@ class tempTrender {
 			urbanAvgOfData[j]=(urbanSumOfData[j])/countsOfData[j];
 			//cout << avgOfData[j] << endl;
 			//cout << urbanAvgOfData[j] << endl;		
+			cout <<theWarmestDays[j] << endl;
+			cout << avgOfData[j] << endl;
+			cout <<theColdestDays[j]<< endl;
+			cout <<theWarmestUrbanDays[j]<< endl;
+			cout << urbanAvgOfData[j] << endl;
+			cout <<theColdestUrbanDays[j]<< endl;		
+		
+		
 		}
 
 		

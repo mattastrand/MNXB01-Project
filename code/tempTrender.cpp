@@ -194,9 +194,38 @@ int main(){
 	tempTrender Upp(pathToFile);
 	Upp.read_temperatures();
 	Upp.tempPerDayExtended();
-	Upp.tempEveryYear();
-	cout <<"Upp " << Upp.warmAndCold[1] << "," << Upp.warmAndCold[3] << endl;
+	
+	
+	TH1D* UppHist = new TH1D("Upp", "Uppsala; Year; Temperature",
+			Upp.avgOfData.size()-1, 0, Upp.avgOfData.size());
+	
+	for (unsigned int i = 0; i< Upp.avgOfData.size(); i++){
+		UppHist->SetBinContent(i,Upp.avgOfData.at(i));
+	}
+	
+	
+	TH1D* UppWarmHist = new TH1D("Upp", "Uppsala; Year; Temperature",
+			Upp.avgOfData.size()-1, 0, Upp.avgOfData.size());
+	
+	for (unsigned int i = 0; i< Upp.avgOfData.size(); i++){
+		UppWarmHist->SetBinContent(i,Upp.theWarmestDays.at(i));
+	}
+	
+	TH1D* UppColdHist = new TH1D("Upp", "Uppsala; Year; Temperature",
+			Upp.avgOfData.size()-1, 0, Upp.avgOfData.size());
+	
+	for (unsigned int i = 0; i< Upp.avgOfData.size(); i++){
+		UppColdHist->SetBinContent(i,Upp.theColdestDays.at(i));
+	}
+	
 
-
-
+	
+	UppHist->SetLineColor(kMagenta);
+	UppHist->SetMinimum(-35);
+	UppHist->SetMaximum(30),
+	UppHist->Draw();
+	UppColdHist->SetLineColor(kMagenta);
+	UppWarmHist->SetLineColor(kMagenta);
+	UppColdHist->Draw("SAME");
+	UppWarmHist->Draw("SAME");
 }
