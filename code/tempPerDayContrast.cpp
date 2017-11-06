@@ -11,6 +11,8 @@ void plotComparison() {
 	
 	TH1D* UppHist = new TH1D("Upp", "Uppsala; Year; Temperature (#circ C)",
 			Upp.avgOfData.size()-1, 0, Upp.avgOfData.size());
+	TLegend *leg = new TLegend(0.50,0.5,0.75, 0.3);
+	
 	
 	for (unsigned int i = 0; i< Upp.avgOfData.size(); i++){
 		UppHist->SetBinContent(i,Upp.avgOfData.at(i));
@@ -40,5 +42,10 @@ void plotComparison() {
 	UppWarmHist->SetLineColor(kRed);
 	UppColdHist->Draw("SAME");
 	UppWarmHist->Draw("SAME");
+	
+	leg->AddEntry(UppWarmHist, "Highest recorded temperature");
+	leg->AddEntry(UppHist, "Average of recorded temperatures");
+	leg->AddEntry(UppColdHist, "Lowest recorded temperature");
+	leg->Draw("SAME");
 	
 }
