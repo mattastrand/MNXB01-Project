@@ -114,7 +114,7 @@ class tempTrender {
 	
 	//Tentative function
 	vector <float> tempPerDay(int yearToCalculate){
-		// This function takes a year as input, computes the average temperature of each day in that year and produces a histogram of mean temperature per day.
+		// This function takes a year as input and computes the average temperature of each day in that year.
 		
 		ifstream f("relevantdata.dat"); // Opening the organized datafile produced in read_temperatures().
 		string line; 
