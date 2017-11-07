@@ -32,7 +32,7 @@ void testFunc(){
 	//To use them, just uncomment relevant lines, and make sure that they are all drawn 
 	// to the same canvas.
 	
-	string pathSoder = "/home/courseuser/MNXB01/2017HT/Project/datasets/smhi-opendata_Soderarm.csv"; //Put the path to your data file here
+	string pathSoder = "/home/magnus/MNXB01/2017HT/Project/datasets/smhi-opendata_Soderarm.csv"; //Put the path to your data file here
 	tempTrender Soder(pathSoder);
 	Soder.read_temperatures();
 	
@@ -190,7 +190,10 @@ void testFunc(){
 
 int main(){
 
-	string pathToFile = "/home/courseuser/MNXB01/2017HT/Project/datasets/uppsala_tm_1722-2013.dat";
+	
+	
+
+	string pathToFile = "/home/magnus/MNXB01/2017HT/Project/datasets/uppsala_tm_1722-2013.dat";
 	tempTrender Upp(pathToFile);
 	Upp.read_temperatures();
 	Upp.tempPerDayExtended();
@@ -228,4 +231,5 @@ int main(){
 	UppWarmHist->SetLineColor(kRed);
 	UppColdHist->Draw("SAME");
 	UppWarmHist->Draw("SAME");
+
 }

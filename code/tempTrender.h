@@ -30,7 +30,7 @@ class tempTrender {
 	
 	vector<string> data_from_file; // Will store every meaningful line from the datasets.
 	vector <float> datavector,urbanDatavector,avgOfData, urbanAvgOfData;
-	vector <float> yearTemp, urbanYearTemp, yearNumber;
+	vector <float> yearTemp, urbanYearTemp, yearNumber, midsummer,urbanMidsummer;
 
 	vector <float> warmAndCold,theWarmestDays,theColdestDays,theWarmestUrbanDays,theColdestUrbanDays;
 	float meanTempEveryYear;
@@ -49,7 +49,7 @@ class tempTrender {
 		ofstream datafile("relevantdata.dat"); 
 		 
 		 
-		if(its_filePath == "/home/courseuser/MNXB01/2017HT/Project/datasets/uppsala_tm_1722-2013.dat"){
+		if(its_filePath == "/home/magnus/MNXB01/2017HT/Project/datasets/uppsala_tm_1722-2013.dat"){
 			
 			
 			while(getline(file,temp)){
@@ -134,7 +134,7 @@ class tempTrender {
 			urbanDatavector.push_back(0);	
 		}
 		
-		if(its_filePath == "/home/courseuser/MNXB01/2017HT/Project/datasets/uppsala_tm_1722-2013.dat"){
+		if(its_filePath == "/home/magnus/MNXB01/2017HT/Project/datasets/uppsala_tm_1722-2013.dat"){
 			
 			
 			while (getline(f, line)){
@@ -240,7 +240,7 @@ class tempTrender {
 		int yyyy, mm, dd, hour, measurementNo = 0, old_year=0;
 		float tot_TempEveryYear = 0;
 		meanTempEveryYear = 0;
-		if(its_filePath == "/home/courseuser/MNXB01/2017HT/Project/datasets/uppsala_tm_1722-2013.dat"){
+		if(its_filePath == "/home/magnus/MNXB01/2017HT/Project/datasets/uppsala_tm_1722-2013.dat"){
 			
 			while(getline(datafile,line)){
 				
@@ -393,7 +393,7 @@ class tempTrender {
 		//The vectors below are filled with the total temperature of any given day
 		//and the number of measurements on that day appears in the entire dataset.
 		//The day is counted as the number of days since the start of the year.
-		//This means that February 29th appears in the 60th position every four years,
+		//This means that Febru<<ary 29th appears in the 60th position every four years,
 		//and every other day is pushed back, so that the last entry is December 31st every four years. 
 
 		vector <float> sumOfData(366,0), countsOfData(366,0), urbanSumOfData(366,0);
@@ -413,10 +413,10 @@ class tempTrender {
 		
 		//As this function runs over every year, it handles the change of year in the same
 		float temperature, mean_temp, tot_temp = 0, urbanTemp, urbanMean_temp, urbanTot_temp = 0;
-		int old_day = 0, old_year=0, measurementNo = 0, start=0, yyyy, mm, dd, hour, old_month=0; 
+		int old_day = 0, old_year=0, measurementNo = 0, start=0, yyyy, mm, dd, hour, old_month=0, theDay=172; 
 		cout << "start " << start << endl;
 		
-		if(its_filePath == "/home/courseuser/MNXB01/2017HT/Project/datasets/uppsala_tm_1722-2013.dat"){
+		if(its_filePath == "/home/magnus/MNXB01/2017HT/Project/datasets/uppsala_tm_1722-2013.dat"){
 		
 			while(getline(file,line)){
 				
@@ -462,6 +462,11 @@ class tempTrender {
 						theColdestUrbanDays[::keepTrack(old_year,old_month,old_day)-1]=urbanMean_temp;
 						
 					}
+					if(::keepTrack(old_year,old_month,old_day)==theDay){
+						midsummer.push_back(mean_temp);
+						urbanMidsummer.push_back(urbanMean_temp);;
+					}
+					
 					sumOfData[::keepTrack(old_year,old_month,old_day)-1]+=mean_temp;
 					urbanSumOfData[::keepTrack(old_year,old_month,old_day)-1]+=urbanMean_temp;
 					countsOfData[::keepTrack(old_year,old_month, old_day)-1]+=1;	
@@ -518,6 +523,10 @@ class tempTrender {
 						theColdestUrbanDays[::keepTrack(old_year,old_month,old_day)-1]=urbanMean_temp;
 						
 					}
+					if(::keepTrack(old_year,old_month,old_day)==theDay){
+						midsummer.push_back(mean_temp);
+						urbanMidsummer.push_back(urbanMean_temp);;
+					}
 					sumOfData[::keepTrack(old_year,old_month, old_day)-1]+=mean_temp;
 					urbanSumOfData[::keepTrack(old_year,old_month,old_day)-1]+=urbanMean_temp;
 					countsOfData[::keepTrack(old_year,old_month,old_day)-1]+=1;
@@ -569,7 +578,9 @@ class tempTrender {
 						theColdestDays[::keepTrack(old_year,old_month,old_day)-1]=mean_temp;
 						
 					}
-					
+					if(::keepTrack(old_year,old_month,old_day)==theDay){
+						midsummer.push_back(mean_temp);
+					}
 					sumOfData[::keepTrack(old_year,old_month,old_day)-1]+=mean_temp;
 					countsOfData[::keepTrack(old_year,old_month, old_day)-1]+=1;	
 					
@@ -610,6 +621,9 @@ class tempTrender {
 						theColdestDays[::keepTrack(old_year,old_month,old_day)-1]=mean_temp;
 						
 					}
+					if(::keepTrack(old_year,old_month,old_day)==theDay){
+						midsummer.push_back(mean_temp);
+					}
 					sumOfData[::keepTrack(old_year,old_month, old_day)-1]+=mean_temp;
 					countsOfData[::keepTrack(old_year,old_month,old_day)-1]+=1;
 					
@@ -626,6 +640,7 @@ class tempTrender {
 			file.close();
 			
 		}
+		
 		for(int j=0; j<=365; j++){
 			avgOfData[j]=(sumOfData[j])/countsOfData[j];
 			urbanAvgOfData[j]=(urbanSumOfData[j])/countsOfData[j];
@@ -637,7 +652,7 @@ class tempTrender {
 			cout <<theWarmestUrbanDays[j]<< endl;
 			cout << urbanAvgOfData[j] << endl;
 			cout <<theColdestUrbanDays[j]<< endl;		
-		
+			
 		
 		}
 
