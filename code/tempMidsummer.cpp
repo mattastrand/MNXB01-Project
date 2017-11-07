@@ -10,8 +10,8 @@
 	MidSummer.read_temperatures();
 	MidSummer.tempPerDayExtended();
 	
-    TH1D*oneDayHist= new TH1D("Gaussian Fit", "MidsummerInUppsala; Temperature; Counts", 60, 0, 30);
-    TLegend *leg = new TLegend(0.50,0.5,0.75, 0.3);
+    TH1D*oneDayHist= new TH1D("Gaussian Fit", "MidsummerInUppsala; Temperature (#circ C); Counts", 60, 0, 30);
+    //TLegend *leg = new TLegend(0.50,0.5,0.75, 0.3);
 
 
     
@@ -27,8 +27,9 @@
 	oneDayHist->SetFillColor(kBlue-2);
 	oneDayHist->Draw();
 	oneDayHist->Fit("gaus");
-	leg->AddEntry("gauss");
-	leg->Draw("SAME");
+	oneDayHist->FitPanel();
+	//leg->AddEntry("gaus");
+	//leg->Draw("SAME");
 	 
  }	 
 	 
