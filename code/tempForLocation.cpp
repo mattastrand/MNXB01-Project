@@ -1,6 +1,5 @@
 #include "tempTrender.h"
 
-
 tempTrender::tempTrender(string filePath) {
 	//cout << "The user supplied " << filePath << " as the path to the data file." << endl;
 	//cout << "You should probably store this information in a member variable of the class. Good luck with the project! :)" << endl;
@@ -12,72 +11,74 @@ tempTrender::~tempTrender(){
 }
 
 void plotTempLocation(){
+	
+	
 	//TCanvas* c1 = new TCanvas("c1", "Location canvas", 1400, 900);
 	TLegend *leg = new TLegend(0.50,0.5,0.75, 0.3);
 	
-	string pathSoder = "/home/courseuser/MNXB01/2017HT/Project/datasets/smhi-opendata_Soderarm.csv"; //Put the path to your data file here
+	string pathSoder = "/home/magnus/MNXB01/2017HT/Project/datasets/smhi-opendata_Soderarm.csv"; //Put the path to your data file here
 	tempTrender Soder(pathSoder);
 	
 	Soder.read_temperatures();
 	Soder.tempEveryYear();
 	
-	string pathUpp = "/home/courseuser/MNXB01/2017HT/Project/datasets/uppsala_tm_1722-2013.dat";
+	string pathUpp = "/home/magnus/MNXB01/2017HT/Project/datasets/uppsala_tm_1722-2013.dat";
 	tempTrender Upp(pathUpp);
 	
 	Upp.read_temperatures();
 	Upp.tempEveryYear();
 	
 	
-	string pathLund = "/home/courseuser/MNXB01/2017HT/Project/datasets/smhi-opendata_Lund.csv";
+	string pathLund = "/home/magnus/MNXB01/2017HT/Project/datasets/smhi-opendata_Lund.csv";
 	tempTrender Lund(pathLund);
 
 	Lund.read_temperatures();
 	Lund.tempEveryYear();
 	
 	
-	string pathLule = "/home/courseuser/MNXB01/2017HT/Project/datasets/smhi-opendata_Lulea.csv";
+	string pathLule = "/home/magnus/MNXB01/2017HT/Project/datasets/smhi-opendata_Lulea.csv";
 	tempTrender Lule(pathLule);
 	
 	Lule.read_temperatures();
 	Lule.tempEveryYear();
 
 	
-	string pathBoras = "/home/courseuser/MNXB01/2017HT/Project/datasets/smhi-opendata_Boras.csv";
+	string pathBoras = "/home/magnus/MNXB01/2017HT/Project/datasets/smhi-opendata_Boras.csv";
 	tempTrender Boras(pathBoras);
 	
 	Boras.read_temperatures();
 	Boras.tempEveryYear();
 	
 	
-	string pathFalun = "/home/courseuser/MNXB01/2017HT/Project/datasets/smhi-opendata_Falun.csv";
+	string pathFalun = "/home/magnus/MNXB01/2017HT/Project/datasets/smhi-opendata_Falun.csv";
 	tempTrender Falun(pathFalun);
 	
 	Falun.read_temperatures();
 	Falun.tempEveryYear();
 	
 	
-	string pathFalster = "/home/courseuser/MNXB01/2017HT/Project/datasets/smhi-opendata_Falsterbo.csv";
+	string pathFalster = "/home/magnus/MNXB01/2017HT/Project/datasets/smhi-opendata_Falsterbo.csv";
 	tempTrender Falster(pathFalster);
 	
 	Falster.read_temperatures();
 	Falster.tempEveryYear();
 	
 	
-	string pathUmea = "/home/courseuser/MNXB01/2017HT/Project/datasets/smhi-opendata_Umea.csv";
+	string pathUmea = "/home/magnus/MNXB01/2017HT/Project/datasets/smhi-opendata_Umea.csv";
 	tempTrender Umea(pathUmea);
 	
 	Umea.read_temperatures();
 	Umea.tempEveryYear();
 	
 	
-	string pathKarl = "/home/courseuser/MNXB01/2017HT/Project/datasets/smhi-openda_Karlstad.csv";
+	string pathKarl = "/home/magnus/MNXB01/2017HT/Project/datasets/smhi-openda_Karlstad.csv";
 	tempTrender Karl(pathKarl);
 	
 	Karl.read_temperatures();
 	Karl.tempEveryYear();
 	
 	
-	string pathVisby ="/home/courseuser/MNXB01/2017HT/Project/datasets/smhi-opendata_Visby.csv";
+	string pathVisby ="/home/magnus/MNXB01/2017HT/Project/datasets/smhi-opendata_Visby.csv";
 	tempTrender Visby(pathVisby);
 
 	Visby.read_temperatures();

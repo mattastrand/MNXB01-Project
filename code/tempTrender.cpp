@@ -1,6 +1,5 @@
 #include <iostream>
 #include "tempTrender.h"
-#include "midsummer.cpp"
 
 
 tempTrender::tempTrender(string filePath) {
@@ -190,14 +189,11 @@ void testFunc(){
 }
 
 int main(){
-<<<<<<< HEAD
-	
-	
-	midsummer();
-	
-=======
 
-	string pathToFile = "/home/courseuser/MNXB01/2017HT/Project/datasets/uppsala_tm_1722-2013.dat";
+	
+	
+
+	string pathToFile = "/home/magnus/MNXB01/2017HT/Project/datasets/uppsala_tm_1722-2013.dat";
 	tempTrender Upp(pathToFile);
 	Upp.read_temperatures();
 	Upp.tempPerDayExtended();
@@ -235,5 +231,5 @@ int main(){
 	UppWarmHist->SetLineColor(kRed);
 	UppColdHist->Draw("SAME");
 	UppWarmHist->Draw("SAME");
->>>>>>> 880a2a6d4a21620f9ef5651eb96862c845cf28b2
+
 }
