@@ -222,7 +222,7 @@ void plotYears(){
 	
 	
 	
-	string pathFalster = "/home/magnus/MNXB01/2017HT/Project/datasets/smhi-opendata_Falsterbo.csv";
+	string pathFalster = "/home/courseuser/MNXB01/2017HT/Project/datasets/smhi-opendata_Falsterbo.csv";
 	tempTrender Falster(pathFalster);
 	
 	Falster.read_temperatures();
@@ -255,7 +255,7 @@ void plotYears(){
 	
 	
 	
-	string pathUmea = "/home/magnus/MNXB01/2017HT/Project/datasets/smhi-opendata_Umea.csv";
+	string pathUmea = "/home/courseuser/MNXB01/2017HT/Project/datasets/smhi-opendata_Umea.csv";
 	tempTrender Umea(pathUmea);
 	
 	Umea.read_temperatures();
