@@ -63,6 +63,8 @@
 ./tempForYearsLocation_cpp.so: /usr/include/root/TLegend.h
 ./tempForYearsLocation_cpp.so: /usr/include/root/TPave.h
 ./tempForYearsLocation_cpp.so: /usr/include/root/TBox.h
-./tempForYearsLocation_cpp.so: /usr/include/root/TColor.h keepTrack.cpp
+./tempForYearsLocation_cpp.so: /usr/include/root/TColor.h
+./tempForYearsLocation_cpp.so: /usr/include/root/TLatex.h
+./tempForYearsLocation_cpp.so: /usr/include/root/TText.h keepTrack.cpp
 ./tempForYearsLocation_cpp.so: /usr/include/root/cintdictversion.h /usr/include/root/RVersion.h
 tempForYearsLocation_cpp__ROOTBUILDVERSION= 5.34/30

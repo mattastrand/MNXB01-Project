@@ -43,7 +43,7 @@ void plotTempExtended(){
 	
 	Soder.tempPerDayExtended();
 
-	TH1D* SoderHist = new TH1D("hPhi", "Soderarm; Day; Temperature", 
+	TH1D* SoderHist = new TH1D("hPhi", "Soderarm; Day; Temperature (#circ C)", 
 			Soder.avgOfData.size()-1 , 0, Soder.avgOfData.size() );
 	
 	for(unsigned int i = 0 ; i< Soder.avgOfData.size() ; i++){
@@ -71,7 +71,7 @@ void plotTempExtended(){
 	
 	Upp.tempPerDayExtended();
 	
-	TH1D* UppHist = new TH1D ("hPhi", "Uppsala; Day; Temperature", 
+	TH1D* UppHist = new TH1D ("hPhi", "Uppsala; Day; Temperature (#circ C)", 
 			Upp.avgOfData.size()-1 , 0, Upp.avgOfData.size());
 			
 	for(unsigned int i = 0 ; i< Upp.avgOfData.size() ; i++){
@@ -83,7 +83,7 @@ void plotTempExtended(){
 	UppHist->SetMaximum(30),
 	UppHist->Draw("SAME");
 	
-	TH1D* UrbanUppHist = new TH1D ("hPhi", "Uppsala Urban; Day; Temperature", 
+	TH1D* UrbanUppHist = new TH1D ("hPhi", "Uppsala Urban; Day; Temperature (#circ C)", 
 			Upp.urbanAvgOfData.size() -1, 0, Upp.urbanAvgOfData.size());
 			
 	for(unsigned int i = 0 ; i< Upp.urbanAvgOfData.size() ; i++){
@@ -111,7 +111,7 @@ void plotTempExtended(){
 	
 	Lund.tempPerDayExtended();
 	
-	TH1D* LundHist = new TH1D("hPhi", "Lund; phi; Counts", 
+	TH1D* LundHist = new TH1D("hPhi", "Lund; day; Temperature (#circ C)", 
 			Lund.avgOfData.size() -1, 0, Lund.avgOfData.size());
 	
 	for (unsigned int i = 0; i < Lund.avgOfData.size(); i++){
@@ -135,7 +135,7 @@ void plotTempExtended(){
 	
 	Lule.tempPerDayExtended();
 	
-	TH1D* LuleHist = new TH1D("hPhi", "Lulea; phi; Counts", 
+	TH1D* LuleHist = new TH1D("hPhi", "Lulea; day; Temperature (#circ C)", 
 			Lule.avgOfData.size() -1, 0, Lule.avgOfData.size());
 	
 	for (unsigned int i = 0; i < Lule.avgOfData.size(); i++){
@@ -155,7 +155,7 @@ void plotTempExtended(){
 	
 	Boras.tempPerDayExtended();
 	
-	TH1D* BorasHist = new TH1D("hPhi", "Boras; phi; Counts", 
+	TH1D* BorasHist = new TH1D("hPhi", "Boras; day; Temperature (#circ C)", 
 			Boras.avgOfData.size() -1, 0, Boras.avgOfData.size());
 	
 	for (unsigned int i = 0; i < Boras.avgOfData.size(); i++){
@@ -174,7 +174,7 @@ void plotTempExtended(){
 	
 	Falun.tempPerDayExtended();
 	
-	TH1D* FalunHist = new TH1D("hPhi", "Fauln; phi; Counts", 
+	TH1D* FalunHist = new TH1D("hPhi", "Fauln; day; Temperature (#circ C)", 
 			Falun.avgOfData.size() -1, 0, Falun.avgOfData.size());
 	
 	for (unsigned int i = 0; i < Falun.avgOfData.size(); i++){
@@ -195,7 +195,7 @@ void plotTempExtended(){
 	
 	Falster.tempPerDayExtended();
 	
-	TH1D* FalsterHist = new TH1D("hPhi", "Falsterbo; phi; Counts", 
+	TH1D* FalsterHist = new TH1D("hPhi", "Falsterbo; day; Temperature (#circ C)", 
 			Falster.avgOfData.size()-1 , 0, Falster.avgOfData.size());
 	
 	for (unsigned int i = 0; i < Falster.avgOfData.size(); i++){
@@ -216,7 +216,7 @@ void plotTempExtended(){
 	
 	Umea.tempPerDayExtended();
 	
-	TH1D* UmeaHist = new TH1D("hPhi", "Umea; phi; Counts", 
+	TH1D* UmeaHist = new TH1D("hPhi", "Umea; day; Temperature (#circ C)", 
 			Umea.avgOfData.size()-1 , 0, Umea.avgOfData.size());
 	
 	for (unsigned int i = 0; i < Umea.avgOfData.size(); i++){
@@ -236,7 +236,7 @@ void plotTempExtended(){
 	
 	Karl.tempPerDayExtended();
 	
-	TH1D* KarlHist = new TH1D("hPhi", "Karlstad; phi; Counts", 
+	TH1D* KarlHist = new TH1D("hPhi", "Karlstad; day; Temperature (#circ C)", 
 			Karl.avgOfData.size()-1 , 0, Karl.avgOfData.size());
 	
 	for (unsigned int i = 0; i < Karl.avgOfData.size(); i++){
@@ -256,7 +256,7 @@ void plotTempExtended(){
 	
 	Visby.tempPerDayExtended();
 	
-	TH1D* VisbyHist = new TH1D("hPhi", "Visby; phi; Counts", 
+	TH1D* VisbyHist = new TH1D("hPhi", "Visby; day; Temperature (#circ C)", 
 			Visby.avgOfData.size()-1 , 0, Visby.avgOfData.size());
 	
 	for (unsigned int i = 0; i < Visby.avgOfData.size(); i++){

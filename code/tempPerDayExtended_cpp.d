@@ -63,6 +63,8 @@
 ./tempPerDayExtended_cpp.so: /usr/include/root/TLegend.h
 ./tempPerDayExtended_cpp.so: /usr/include/root/TPave.h
 ./tempPerDayExtended_cpp.so: /usr/include/root/TBox.h
-./tempPerDayExtended_cpp.so: /usr/include/root/TColor.h keepTrack.cpp
+./tempPerDayExtended_cpp.so: /usr/include/root/TColor.h
+./tempPerDayExtended_cpp.so: /usr/include/root/TLatex.h
+./tempPerDayExtended_cpp.so: /usr/include/root/TText.h keepTrack.cpp
 ./tempPerDayExtended_cpp.so: /usr/include/root/cintdictversion.h /usr/include/root/RVersion.h
 tempPerDayExtended_cpp__ROOTBUILDVERSION= 5.34/30
