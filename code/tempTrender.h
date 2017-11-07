@@ -49,7 +49,7 @@ class tempTrender {
 		ofstream datafile("relevantdata.dat"); 
 		 
 		 
-		if(its_filePath == "/home/magnus/MNXB01/2017HT/Project/datasets/uppsala_tm_1722-2013.dat"){
+		if(its_filePath == "/home/courseuser/MNXB01/2017HT/Project/datasets/uppsala_tm_1722-2013.dat"){
 			
 			
 			while(getline(file,temp)){
@@ -134,7 +134,7 @@ class tempTrender {
 			urbanDatavector.push_back(0);	
 		}
 		
-		if(its_filePath == "/home/magnus/MNXB01/2017HT/Project/datasets/uppsala_tm_1722-2013.dat"){
+		if(its_filePath == "/home/courseuser/MNXB01/2017HT/Project/datasets/uppsala_tm_1722-2013.dat"){
 			
 			
 			while (getline(f, line)){
@@ -240,7 +240,7 @@ class tempTrender {
 		int yyyy, mm, dd, hour, measurementNo = 0, old_year=0;
 		float tot_TempEveryYear = 0;
 		meanTempEveryYear = 0;
-		if(its_filePath == "/home/magnus/MNXB01/2017HT/Project/datasets/uppsala_tm_1722-2013.dat"){
+		if(its_filePath == "/home/courseuser/MNXB01/2017HT/Project/datasets/uppsala_tm_1722-2013.dat"){
 			
 			while(getline(datafile,line)){
 				
@@ -416,7 +416,7 @@ class tempTrender {
 		int old_day = 0, old_year=0, measurementNo = 0, start=0, yyyy, mm, dd, hour, old_month=0, theDay=172; 
 		cout << "start " << start << endl;
 		
-		if(its_filePath == "/home/magnus/MNXB01/2017HT/Project/datasets/uppsala_tm_1722-2013.dat"){
+		if(its_filePath == "/home/courseuser/MNXB01/2017HT/Project/datasets/uppsala_tm_1722-2013.dat"){
 		
 			while(getline(file,line)){
 				
