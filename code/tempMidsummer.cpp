@@ -13,7 +13,7 @@
  void plotMidsummer() { 
 	 
 	 // Call the neseccary functions found in the included header file concerning a specific data set.
-	string path = "/home/magnus/MNXB01/2017HT/Project/datasets/uppsala_tm_1722-2013.dat";
+	string path = "/home/courseuser/MNXB01/2017HT/Project/datasets/uppsala_tm_1722-2013.dat";
 	tempTrender MidSummer(path);
 	MidSummer.read_temperatures();
 	MidSummer.tempPerDayExtended();
