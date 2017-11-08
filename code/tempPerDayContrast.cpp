@@ -3,7 +3,7 @@
 
 void plotComparison() {
 	
-	string pathToFile = "/home/magnus/MNXB01/2017HT/Project/datasets/uppsala_tm_1722-2013.dat";
+	string pathToFile = "/home/courseuser/MNXB01/2017HT/Project/datasets/uppsala_tm_1722-2013.dat";
 	tempTrender Upp(pathToFile);
 	Upp.read_temperatures();
 	Upp.tempPerDayExtended();
