@@ -19,7 +19,7 @@ void plotFalunAndLule(){
 	TLegend *leg2 = new TLegend(0.50,0.5,0.75, 0.3);
 	c1->Divide(2,1);
 	
-	string pathFalun = "/home/magnus/MNXB01/2017HT/Project/datasets/smhi-opendata_Falun.csv";
+	string pathFalun = "/home/courseuser/MNXB01/2017HT/Project/datasets/smhi-opendata_Falun.csv";
 	tempTrender Falun(pathFalun);
 	
 	Falun.read_temperatures();
@@ -45,7 +45,7 @@ void plotFalunAndLule(){
 	
 	
 
-	string pathLule = "/home/magnus/MNXB01/2017HT/Project/datasets/smhi-opendata_Lulea.csv";
+	string pathLule = "/home/courseuser/MNXB01/2017HT/Project/datasets/smhi-opendata_Lulea.csv";
 	tempTrender Lule(pathLule);
 	
 	Lule.read_temperatures();
