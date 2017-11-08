@@ -20,3 +20,4 @@
 06/11: Created a plot to compare results (regarding warm and cold years, and mean overall temperature) that rely or don't rely on bad measurements. (Mattias)
 06/11: Created plots that compare temperature behaviour throughout those years that were identified as warmest and coldest for different locations. (Mattias)
 07/11: plotMidsummer() function created to make a histogram showing general temperature behaviour on the day of midsummer. (Magnus)
+08/11: Added comments to several pieces of code. (Magnus)
