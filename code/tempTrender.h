@@ -109,7 +109,7 @@ class tempTrender {
 		ofstream datafile("relevantdata.dat"); 
 		 
 		 
-		if(its_filePath == "/home/magnus/MNXB01/2017HT/Project/datasets/uppsala_tm_1722-2013.dat"){
+		if(its_filePath == "/home/courseuser/MNXB01/2017HT/Project/datasets/uppsala_tm_1722-2013.dat"){
 			
 			//Reading the file with raw data and print the relevant result to the relevant data file.
 			while(getline(file,temp)){
@@ -197,7 +197,7 @@ class tempTrender {
 			urbanDatavector.push_back(0);	
 		}
 		
-		if(its_filePath == "/home/magnus/MNXB01/2017HT/Project/datasets/uppsala_tm_1722-2013.dat"){
+		if(its_filePath == "/home/courseuser/MNXB01/2017HT/Project/datasets/uppsala_tm_1722-2013.dat"){
 			
 			// The while loop goes through every line in the datafile. It adds up temperatures until a new day is reached, then takes the mean of these and outputs it in the datavector.
 			while (getline(f, line)){
@@ -309,7 +309,7 @@ class tempTrender {
 		int yyyy, mm, dd, hour, measurementNo = 0, old_year=0;
 		float tot_TempEveryYear = 0;
 		meanTempEveryYear = 0;
-		if(its_filePath == "/home/magnus/MNXB01/2017HT/Project/datasets/uppsala_tm_1722-2013.dat"){
+		if(its_filePath == "/home/courseuser/MNXB01/2017HT/Project/datasets/uppsala_tm_1722-2013.dat"){
 			
 			//Read the data file and extract information of interest for the case when we look at the uppsala data set.
 			while(getline(datafile,line)){
@@ -468,7 +468,7 @@ class tempTrender {
 		int old_day = 0, old_year=0, measurementNo = 0, start=0, yyyy, mm, dd, hour, old_month=0, theDay=356; 
 		
 		//Special code section for the case we read data from uppsala.
-		if(its_filePath == "/home/magnus/MNXB01/2017HT/Project/datasets/uppsala_tm_1722-2013.dat"){
+		if(its_filePath == "/home/courseuser/MNXB01/2017HT/Project/datasets/uppsala_tm_1722-2013.dat"){
 			
 			//Reading through the data for the uppsala dataset 
 			while(getline(file,line)){
