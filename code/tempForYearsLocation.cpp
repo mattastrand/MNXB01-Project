@@ -84,7 +84,7 @@ void plotYears(){
 	
 	
 	
-	string pathLund = "/home/courseuser/MNXB01/2017HT/Project/datasets/smhi-opendata_Lund.csv";
+	string pathLund = "/home/magnus/MNXB01/2017HT/Project/datasets/smhi-opendata_Lund.csv";
 	tempTrender Lund(pathLund);
 
 	Lund.read_temperatures();
@@ -119,7 +119,7 @@ void plotYears(){
 	
 	
 	
-	string pathLule = "/home/courseuser/MNXB01/2017HT/Project/datasets/smhi-opendata_Lulea.csv";
+	string pathLule = "/home/magnus/MNXB01/2017HT/Project/datasets/smhi-opendata_Lulea.csv";
 	tempTrender Lule(pathLule);
 	
 	Lule.read_temperatures();
@@ -222,7 +222,7 @@ void plotYears(){
 	
 	
 	
-	string pathFalster = "/home/courseuser/MNXB01/2017HT/Project/datasets/smhi-opendata_Falsterbo.csv";
+	string pathFalster = "/home/magnus/MNXB01/2017HT/Project/datasets/smhi-opendata_Falsterbo.csv";
 	tempTrender Falster(pathFalster);
 	
 	Falster.read_temperatures();
@@ -255,7 +255,7 @@ void plotYears(){
 	
 	
 	
-	string pathUmea = "/home/courseuser/MNXB01/2017HT/Project/datasets/smhi-opendata_Umea.csv";
+	string pathUmea = "/home/magnus/MNXB01/2017HT/Project/datasets/smhi-opendata_Umea.csv";
 	tempTrender Umea(pathUmea);
 	
 	Umea.read_temperatures();
